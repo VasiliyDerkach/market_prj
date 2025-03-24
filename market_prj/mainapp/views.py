@@ -24,7 +24,12 @@ def accommodations(request):
         # print(request.POST)
         if request.POST.get('btn_format'):
             # print('1')
-            format = request.POST.get('format')
+            # format = request.POST.get('format')
+            if format == 'table':
+                format = 'icons'
+            elif format == 'icons':
+                format = 'table'
+
         if request.POST.get('btn_table'):
             # print('2')
             format = 'table'

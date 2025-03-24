@@ -22,7 +22,12 @@
                 </option>
             </select>
             <button name="btn_format" id="btn_format" type="submit" value="{{format}}">
-                U
+                {% if format == "table" %}
+                    T
+                {% endif %}
+                {% if format == "icons" %}
+                    L
+                {% endif %}
             </button>
             <button name="btn_table" id="btn_table" type="submit" value="{{format}}">
                 {% if format == "table" %}

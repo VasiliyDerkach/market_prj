@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'social_django',
     'mainapp',
     'authapp',
+    'adminapp',
     'aldjemy',
 ]
 AUTH_USER_MODEL = 'authapp.TravelUser'

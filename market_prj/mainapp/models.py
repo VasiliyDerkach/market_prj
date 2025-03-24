@@ -60,7 +60,7 @@ class Accommodation(models.Model):
         # list_of_accommodations1 = list_of_accommodations.join(Regions.sa,Accommodation.sa.region.has(Regions.sa.id))
         # list_of_accommodations2 = list_of_accommodations1.filter(Regions.sa.country.has(uuid.UUID(country_id))).all()
         # # list_of_accommodations2 = list_of_accommodations1.filter(Regions.sa.country.has(uuid(country_id)))
-        list_of_accommodations2 = Accommodation.objects.select_related('region').filter(region_id__country_id=uuid.UUID(country_id)).all()
+        list_of_accommodations2 = Accommodation.objects.select_related('region').filter(region_id__country_id=uuid.UUID(country_id)).order_by('name')
 
         return list_of_accommodations2
 
