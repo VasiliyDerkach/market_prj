@@ -154,7 +154,8 @@ def accommodations(request, pk):
     country = get_object_or_404(ListOfCountries, pk=pk)
     # accommodation_list = Accommodation.objects.filter(
     #     country__id=pk).order_by('name')
-    accommodation_list = Accommodation.get_country_items(pk)
+    accommodation_list = Accommodation.get_country_items(pk,'country')
+    print('lst= ',accommodation_list.values('region_id__country_id__name'))
     print('idcountry=',pk)
     for a in accommodation_list:
         print(a.name)

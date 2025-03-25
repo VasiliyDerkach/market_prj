@@ -41,7 +41,7 @@ def accommodations(request):
         TravelUserProfile.objects.filter(user=curent_user.id).update(accomm_format=format)
         # print(btn_format)
     # list_of_accommodations = Accommodation.objects.filter(is_active=True)
-    list_of_accommodations = Accommodation.get_country_items('00000000-0000-0000-0000-000000000001')
+    list_of_accommodations = Accommodation.get_country_items('00000000-0000-0000-0000-000000000001','country')
 
     # for a in list_of_accommodations:
     #     print('accomm=',a)
