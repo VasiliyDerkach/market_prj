@@ -42,13 +42,14 @@ def accommodations(request):
         # print(btn_format)
     # list_of_accommodations = Accommodation.objects.filter(is_active=True)
     list_of_accommodations = Accommodation.get_country_items('00000000-0000-0000-0000-000000000001','country')
-
+    list_of_country = ListOfCountries.objects.values('id','name')
     # for a in list_of_accommodations:
     #     print('accomm=',a)
 
     content = {
         'title': title,
         'list_of_accommodations': list_of_accommodations,
+        'list_of_country': list_of_country,
         'format': format,
     }
 

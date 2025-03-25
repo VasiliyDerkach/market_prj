@@ -13,6 +13,25 @@
                                     href="{% url 'acc:index' %}">
                 забронировать размещение</a></li>
             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                       href="" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                    Выбор стран
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'acc:index' %}">
+                            Все
+                        </a>
+                        {% for countr in list_of_country %}
+                        <div>
+                            <button name="btn_{{ countr.id }}" id="btn_{{ countr.id }}" type="submit" values="{{ countr.id }}">
+                                {{ countr.name }}
+                            </button>
+                        </div>
+                        {% endfor %}
+                </div>
+            </li>
+            <li class="nav-item dropdown">
                 {% if user.is_authenticated %}
 
                     <a class="nav-link dropdown-toggle"
