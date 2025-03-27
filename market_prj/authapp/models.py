@@ -49,3 +49,11 @@ class UserCaseProfile(models.Model):
     context = models.CharField(
         verbose_name='контекст параметра', max_length=128, blank=True)
 
+    @staticmethod
+    def update_user_countryes(userid, countryid):
+        print(userid, countryid)
+        if countryid=='free':
+            UserCaseProfile.objects.filter(user_id=userid).delete()
+        elif not UserCaseProfile.objects.filter(user_id=userid,param_id=countryid):
+                UserCaseProfile.objects.create(user_id=userid, param_id=countryid,context='country')
+

@@ -26,10 +26,9 @@
                         {% csrf_token %}
                             {% for countr in list_of_country %}
                             <div>
-                                <label for="btnс_{{ countr.id }}">
+                                <button type="submit" name="btnс" id="btnс_{{ countr.id }}" value="{{ countr.id }}">
                                     {{ countr.name }}
-                                    <input type="submit" class="hidden" name="btnс" id="btnс_{{ countr.id }}" value="{{ countr.id }}">
-                                </label>
+                                </button>
 
                             </div>
 

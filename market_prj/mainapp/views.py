@@ -3,7 +3,7 @@ from django.contrib import auth
 import uuid
 import aldjemy
 # from market_prj.market_prj.authapp import models
-from authapp.models import TravelUser,TravelUserProfile
+from authapp.models import TravelUser,TravelUserProfile,UserCaseProfile
 import authapp
 def main(request):
     return render(request, 'mainapp/index.html')
@@ -21,7 +21,7 @@ def accommodations(request):
     if curr_profile:
         format = curr_profile[0]['accomm_format']
     if request.method == 'POST':
-        # print(request.POST)
+        print(request.POST)
         if request.POST.get('btn_format'):
             # print('1')
             # format = request.POST.get('format')
@@ -29,16 +29,10 @@ def accommodations(request):
                 format = 'icons'
             elif format == 'icons':
                 format = 'table'
+        elif request.POST.get('btnс'):
+            btnc_id = request.POST.get('btnс')
+            UserCaseProfile.update_user_countryes(userid=curent_user.id, countryid=btnc_id)
 
-        if request.POST.get('btn_table'):
-            # print('2')
-            format = 'table'
-        if request.POST.get('btn_icons'):
-            # print('3')
-            format = 'icons'
-        print(request.POST)
-        # user.accomm_format = format
-        # user.save()
         TravelUserProfile.objects.filter(user=curent_user.id).update(accomm_format=format)
         # print(btn_format)
     # list_of_accommodations = Accommodation.objects.filter(is_active=True)

@@ -2,15 +2,8 @@ import uuid
 # Create your models here.
 # from django.conf import settings
 
-from django.conf import settings
 from django.db import models
-# from aldjemy.meta import AldjemyMeta
-# from sqlalchemy import create_engine
-# SQLALCHEMY_ENGINES = {
-#     "postgresql": "postgresql",
-#     # "postgresql_psycopg2": "postgresql+psycopg2",
-#     }
-# from aldjemy.meta import AldjemyMeta# from django.contrib.postgres.fields import ArrayField, DateRangeField
+import authapp
 class ListOfCountries(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(verbose_name='имя', max_length=64, unique=True)
