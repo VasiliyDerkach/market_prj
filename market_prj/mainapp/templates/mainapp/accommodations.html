@@ -6,46 +6,12 @@
     <div class="container mt-3">
         <form method="post">
         {% csrf_token %}
-            <select name="format" id="{{format}}" type="submit">
-                <option value="">-- Выберите формат --</option>
-                <option name="opt_format_tbl" id="opt_format_tbl" type="submit" value="table"
-                        {% if format == "table" %}
-                            selected
-                        {% endif %}
-                        >Таблица
-                </option>
-                <option name="opt_format_icn" id="opt_format_icn" type="submit" value="icons"
-                        {% if format == "icons" %}
-                            selected
-                        {% endif %}
-                        >Слайды
-                </option>
-            </select>
             <button name="btn_format" id="btn_format" type="submit" value="{{format}}">
                 {% if format == "table" %}
                     T
                 {% endif %}
                 {% if format == "icons" %}
                     L
-                {% endif %}
-            </button>
-            <button name="btn_table" id="btn_table" type="submit" value="{{format}}">
-                {% if format == "table" %}
-                    <strong>
-                {% endif %}
-                T
-                {% if format == "table" %}
-                    </strong>
-                {% endif %}
-            </button>
-
-            <button name="btn_icons" id="btn_icons" type="submit" value="{{format}}">
-                {% if format == "icons" %}
-                    <strong>
-                {% endif %}
-                L
-                {% if format == "icons" %}
-                    </strong>
                 {% endif %}
             </button>
 
@@ -62,6 +28,8 @@
                     <div class="card-body fa fa-align-justify">
                         <h5 class="card-title">{{ offer.name|title }}</h5>
                         <p class="card-text">{{ offer.region|title }}</p>
+                        <p class="card-text">{{ offer.region.country|title }}</p>
+
                         <p class="card-text">{{ offer.price }} за 
 								сутки.</p>
                         <a href="{% url 'acc:accommodation' offer.pk %}"

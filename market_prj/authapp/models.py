@@ -40,3 +40,12 @@ class TravelUserProfile(models.Model):
     def save_user_profile(sender, instance, **kwargs):
         instance.traveluserprofile.save()
 
+class UserCaseProfile(models.Model):
+    user = models.OneToOneField(
+        TravelUser, unique=True, null=False, db_index=True,
+        on_delete=models.CASCADE)
+    param_id = models.CharField(
+        verbose_name='id параметра профиля', max_length=40, blank=False)
+    context = models.CharField(
+        verbose_name='контекст параметра', max_length=128, blank=True)
+

@@ -60,13 +60,16 @@ class Accommodation(models.Model):
         # list_of_accommodations1 = list_of_accommodations.join(Regions.sa,Accommodation.sa.region.has(Regions.sa.id))
         # list_of_accommodations2 = list_of_accommodations1.filter(Regions.sa.country.has(uuid.UUID(country_id))).all()
         # # list_of_accommodations2 = list_of_accommodations1.filter(Regions.sa.country.has(uuid(country_id)))
-        list_of_accommodations2 = Accommodation.objects.select_related('region').filter(region_id__country_id=uuid.UUID(country_id))
+        list_of_accommodations2 = Accommodation.objects.select_related('region')
+        if country_id:
+            list_of_accommodations2.filter(region_id__country_id=uuid.UUID(country_id))
         if join_type=='country':
             list_of_accommodations2 = list_of_accommodations2.select_related('country')
+            # list_of_accommodations2 = list_of_accommodations2.values('name','region','price','region_id__country_id__name')
+            # print(list_of_accommodations2.values('region_id__country_id__name'))
+
         list_of_accommodations2 = list_of_accommodations2.order_by('name')
-        print('la= ',list_of_accommodations2[0])
-
-
+        # print('la= ',list_of_accommodations2[0])
         return list_of_accommodations2
 
 

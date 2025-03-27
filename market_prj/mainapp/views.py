@@ -36,15 +36,16 @@ def accommodations(request):
         if request.POST.get('btn_icons'):
             # print('3')
             format = 'icons'
+        print(request.POST)
         # user.accomm_format = format
         # user.save()
         TravelUserProfile.objects.filter(user=curent_user.id).update(accomm_format=format)
         # print(btn_format)
     # list_of_accommodations = Accommodation.objects.filter(is_active=True)
-    list_of_accommodations = Accommodation.get_country_items('00000000-0000-0000-0000-000000000001','country')
+    list_of_accommodations = Accommodation.get_country_items(None,'country')
     list_of_country = ListOfCountries.objects.values('id','name')
     # for a in list_of_accommodations:
-    #     print('accomm=',a)
+    #     print('accomm=',a.name,a.region,a.region.country)
 
     content = {
         'title': title,

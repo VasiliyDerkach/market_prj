@@ -22,13 +22,19 @@
                         <a class="dropdown-item" href="{% url 'acc:index' %}">
                             Все
                         </a>
-                        {% for countr in list_of_country %}
-                        <div>
-                            <button name="btn_{{ countr.id }}" id="btn_{{ countr.id }}" type="submit" values="{{ countr.id }}">
-                                {{ countr.name }}
-                            </button>
-                        </div>
-                        {% endfor %}
+                        <form method="post">
+                        {% csrf_token %}
+                            {% for countr in list_of_country %}
+                            <div>
+                                <label for="btnс_{{ countr.id }}">
+                                    {{ countr.name }}
+                                    <input type="submit" class="hidden" name="btnс" id="btnс_{{ countr.id }}" value="{{ countr.id }}">
+                                </label>
+
+                            </div>
+
+                            {% endfor %}
+                        </form>
                 </div>
             </li>
             <li class="nav-item dropdown">

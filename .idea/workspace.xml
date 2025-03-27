@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="2join">
+    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="2join1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/authapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/authapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/mainapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/accommodations.html" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/accommodations.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/includes/inc_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/includes/inc_menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/views.py" afterDir="false" />
     </list>
@@ -101,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742911584011</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="2join1">
+      <option name="closed" value="true" />
+      <created>1742916540925</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742916540925</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -110,6 +121,7 @@
     <MESSAGE value="5" />
     <MESSAGE value="adm" />
     <MESSAGE value="2join" />
-    <option name="LAST_COMMIT_MESSAGE" value="2join" />
+    <MESSAGE value="2join1" />
+    <option name="LAST_COMMIT_MESSAGE" value="2join1" />
   </component>
 </project>
