@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="country list">
-      <change afterPath="$PROJECT_DIR$/market_prj/authapp/migrations/0002_usercaseprofile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/market_prj/mainapp/migrations/0002_auto_20250327_1913.py" afterDir="false" />
+    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="country list1">
+      <change afterPath="$PROJECT_DIR$/market_prj/authapp/migrations/0002_auto_20250328_1328.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/authapp/migrations/0003_auto_20250328_1338.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/authapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/authapp/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/authapp/migrations/0002_usercaseprofile.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/authapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/authapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/mainapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/includes/inc_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/includes/inc_menu.html" afterDir="false" />
@@ -21,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -51,10 +53,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\PythonCurse\market_prj\market_prj\authapp\migrations" />
+      <recent name="C:\PythonCurse\market_prj\market_prj\authapp\migrations\1" />
       <recent name="C:\PythonCurse\market_prj\market_prj" />
       <recent name="C:\PythonCurse\market_prj" />
       <recent name="C:\PythonCurse\market_prj\market_prj\market_prj" />
-      <recent name="C:\PythonCurse\market_prj\market_prj\mainapp\templates\mainapp" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -113,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742916540925</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="country list1">
+      <option name="closed" value="true" />
+      <created>1743087760339</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1743087760339</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -124,6 +135,7 @@
     <MESSAGE value="2join" />
     <MESSAGE value="2join1" />
     <MESSAGE value="country list" />
-    <option name="LAST_COMMIT_MESSAGE" value="country list" />
+    <MESSAGE value="country list1" />
+    <option name="LAST_COMMIT_MESSAGE" value="country list1" />
   </component>
 </project>

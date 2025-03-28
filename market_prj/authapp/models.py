@@ -41,9 +41,7 @@ class TravelUserProfile(models.Model):
         instance.traveluserprofile.save()
 
 class UserCaseProfile(models.Model):
-    user = models.OneToOneField(
-        TravelUser, unique=True, null=False, db_index=True,
-        on_delete=models.CASCADE)
+    user = models.ForeignKey(TravelUser, on_delete=models.CASCADE)
     param_id = models.CharField(
         verbose_name='id параметра профиля', max_length=40, blank=False)
     context = models.CharField(
@@ -54,6 +52,9 @@ class UserCaseProfile(models.Model):
         print(userid, countryid)
         if countryid=='free':
             UserCaseProfile.objects.filter(user_id=userid).delete()
-        elif not UserCaseProfile.objects.filter(user_id=userid,param_id=countryid):
+        else:
+            if UserCaseProfile.objects.filter(user_id=userid,param_id=countryid):
+                UserCaseProfile.objects.filter(user_id=userid, param_id=countryid, context='country').delete()
+            else:
                 UserCaseProfile.objects.create(user_id=userid, param_id=countryid,context='country')
 

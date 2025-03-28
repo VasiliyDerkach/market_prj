@@ -14,6 +14,7 @@ from .models import Accommodation
 def accommodations(request):
     title = 'размещение'
     format = 'icons'
+    countryes_case =None
     curent_user = auth.get_user(request)
     profile_curr_user = TravelUserProfile.objects.filter(user=curent_user.id)
     # print(list(profile_curr_user.values('accomm_format')),curent_user.id)
@@ -29,15 +30,24 @@ def accommodations(request):
                 format = 'icons'
             elif format == 'icons':
                 format = 'table'
-        elif request.POST.get('btnс'):
+        elif request.POST.get('btnс') and curr_profile:
             btnc_id = request.POST.get('btnс')
             UserCaseProfile.update_user_countryes(userid=curent_user.id, countryid=btnc_id)
-
+        if (request.POST.get('btnс') or request.POST.get('btn_countryes')) and curr_profile:
+            countryes_case = list(UserCaseProfile.objects.filter(user=curent_user.id,context='country').values_list('param_id',flat=True))
+            print('countryes_case=',countryes_case)
         TravelUserProfile.objects.filter(user=curent_user.id).update(accomm_format=format)
         # print(btn_format)
     # list_of_accommodations = Accommodation.objects.filter(is_active=True)
-    list_of_accommodations = Accommodation.get_country_items(None,'country')
+    # list_of_accommodations = Accommodation.get_country_items(countryes_case,'country')
+    list_of_accommodations = Accommodation.get_country_items('00000000-0000-0000-0000-000000000003','country')
     list_of_country = ListOfCountries.objects.values('id','name')
+    for elm in list_of_country:
+        # print(elm['id'])
+        if UserCaseProfile.objects.filter(user_id=curent_user.id, param_id=elm['id'], context='country'):
+            elm['is_active'] = True
+        else:
+            elm['is_active'] = False
     # for a in list_of_accommodations:
     #     print('accomm=',a.name,a.region,a.region.country)
 

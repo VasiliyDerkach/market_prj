@@ -27,7 +27,12 @@
                             {% for countr in list_of_country %}
                             <div>
                                 <button type="submit" name="btnс" id="btnс_{{ countr.id }}" value="{{ countr.id }}">
-                                    {{ countr.name }}
+                                    {% if countr.is_active %}
+                                        [x] {{ countr.name }}
+                                    {% else %}
+                                        [ ] {{ countr.name }}
+                                    {% endif %}
+
                                 </button>
 
                             </div>
