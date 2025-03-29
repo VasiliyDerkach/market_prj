@@ -42,8 +42,8 @@ class TravelUserProfile(models.Model):
 
 class UserCaseProfile(models.Model):
     user = models.ForeignKey(TravelUser, on_delete=models.CASCADE)
-    param_id = models.CharField(
-        verbose_name='id параметра профиля', max_length=40, blank=False)
+    param_id = models.UUIDField(
+        verbose_name='id параметра профиля',  blank=False)
     context = models.CharField(
         verbose_name='контекст параметра', max_length=128, blank=True)
 
@@ -51,10 +51,20 @@ class UserCaseProfile(models.Model):
     def update_user_countryes(userid, countryid):
         print(userid, countryid)
         if countryid=='free':
-            UserCaseProfile.objects.filter(user_id=userid).delete()
+            UserCaseProfile.objects.filter(user_id=userid, context='country').delete()
         else:
             if UserCaseProfile.objects.filter(user_id=userid,param_id=countryid):
                 UserCaseProfile.objects.filter(user_id=userid, param_id=countryid, context='country').delete()
             else:
                 UserCaseProfile.objects.create(user_id=userid, param_id=countryid,context='country')
 
+    @staticmethod
+    def update_user_parametrs(userid, parametrid,param_type):
+        print(userid, parametrid)
+        if parametrid=='free':
+            UserCaseProfile.objects.filter(user_id=userid,context=param_type).delete()
+        else:
+            if UserCaseProfile.objects.filter(user_id=userid,param_id=parametrid):
+                UserCaseProfile.objects.filter(user_id=userid, param_id=parametrid, context=param_type).delete()
+            else:
+                UserCaseProfile.objects.create(user_id=userid, param_id=parametrid,context=param_type)

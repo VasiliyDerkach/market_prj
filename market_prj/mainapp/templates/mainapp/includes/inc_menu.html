@@ -24,13 +24,20 @@
                         </a>
                         <form method="post">
                         {% csrf_token %}
+                            <button type="submit" name="btn_countryes" id="btn_countryes" value="btn_countryes">
+                                Применить
+                            </button>
+                            <button type="submit" name="btn_country_clear" id="btn_country_clear" value="btn_country_clear">
+                                Сбросить
+                            </button>
+
                             {% for countr in list_of_country %}
                             <div>
                                 <button type="submit" name="btnс" id="btnс_{{ countr.id }}" value="{{ countr.id }}">
                                     {% if countr.is_active %}
-                                        [x] {{ countr.name }}
+                                        [x] {{ countr.name|title }}
                                     {% else %}
-                                        [ ] {{ countr.name }}
+                                        [ ] {{ countr.name|title }}
                                     {% endif %}
 
                                 </button>
