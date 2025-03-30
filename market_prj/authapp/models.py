@@ -61,14 +61,18 @@ class UserCaseProfile(models.Model):
     @staticmethod
     def update_user_parametrs(userid, parametrid,param_type):
         print(userid, parametrid)
+        is_check = False
         if parametrid=='free':
             UserCaseProfile.objects.filter(user_id=userid,context=param_type).delete()
         else:
-            if UserCaseProfile.objects.filter(user_id=userid,param_id=parametrid):
-                UserCaseProfile.objects.filter(user_id=userid, param_id=parametrid, context=param_type).delete()
-            else:
-                if isinstance(parametrid,list):
-                    for p in parametrid:
-                        UserCaseProfile.objects.create(user_id=userid, param_id=p,context=param_type)
-                elif parametrid:
-                    UserCaseProfile.objects.create(user_id=userid, param_id=parametrid,context=param_type)
+            if not isinstance(parametrid,list) and parametrid:
+                parametrid = [parametrid]
+                is_check = True
+            if parametrid:
+                for p in parametrid:
+                    incase = UserCaseProfile.objects.filter(user_id=userid, param_id=p, context=param_type)
+                    if incase and is_check:
+                        incase.delete()
+                    else:
+                        if not incase:
+                            UserCaseProfile.objects.create(user_id=userid, param_id=p,context=param_type)

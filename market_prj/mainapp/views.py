@@ -50,16 +50,18 @@ def accommodations(request):
         if request.POST.get('btn_region_clear') and curent_user:
             print('free region')
             typeparam = 'region'
-            UserCaseProfile.update_user_parametrs(userid=curent_user.id, countryid='free',param_type='region')
+            UserCaseProfile.update_user_parametrs(userid=curent_user.id, parametrid='free',param_type='region')
             # get_regions_of_countryes
         if request.POST.get('btnr_of_countryes') and curent_user:
             typeparam = 'region'
             countryes_case1 = list(UserCaseProfile.objects.filter(user_id=curent_user.id, context='country').values_list('param_id',flat=True))
-            cntcase = Regions.get_regions_of_countryes(countryes_case1)
+            print('countryes_case1=',countryes_case1)
+            cntcase = list(Regions.get_regions_of_countryes(countryes_case1).values_list('id',flat=True))
+            UserCaseProfile.update_user_parametrs(userid=curent_user.id, parametrid=cntcase, param_type='region')
         if (request.POST.get('btnr') or request.POST.get('btn_regions')) and curent_user:
             print('btnr')
             typeparam = 'region'
-            countryes_case0 = list(UserCaseProfile.objects.filter(user_id=curent_user.id,context='region').values_list('param_id',flat=True))
+            cntcase = list(UserCaseProfile.objects.filter(user_id=curent_user.id,context='region').values_list('param_id',flat=True))
 
         TravelUserProfile.objects.filter(user_id=curent_user.id).update(accomm_format=format)
         # print(btn_format)
@@ -69,7 +71,7 @@ def accommodations(request):
     list_of_accommodations = Accommodation.get_parametrs_items(param_id=cntcase, param_type=typeparam, join_type='country')
     # list_of_accommodations = Accommodation.get_country_items('00000000-0000-0000-0000-000000000003','country')
     list_of_country = ListOfCountries.objects.values('id','name')
-    List_of_regions = Regions.objects.values('id','name')
+    List_of_regions = Regions.objects.select_related('country').values('id','name','country_id','country_id__name')
     for elm in list_of_country:
         # print(elm['id'])
         if UserCaseProfile.objects.filter(user_id=curent_user.id, param_id=elm['id'], context='country'):

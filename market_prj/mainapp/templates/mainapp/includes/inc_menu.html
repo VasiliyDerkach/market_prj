@@ -74,9 +74,9 @@
                             <div>
                                 <button type="submit" name="btnr" id="btnс_{{ countr.id }}" value="{{ countr.id }}">
                                     {% if countr.is_active %}
-                                        [x] {{ countr.name|title }}/{{ countr.country.name|title }}
+                                        [x] {{ countr.name|title }}/{{ countr.country_id__name|title }}
                                     {% else %}
-                                        [ ] {{ countr.name|title }}/{{ countr.country.name|title }}
+                                        [ ] {{ countr.name|title }}/{{ countr.country_id__name|title }}
                                     {% endif %}
 
                                 </button>

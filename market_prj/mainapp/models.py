@@ -90,6 +90,7 @@ class Accommodation(models.Model):
             if param_type=='country':
                 list_of_accommodations2 = list_of_accommodations2.filter(region_id__country_id=uuid.UUID(param_id))
             elif param_type == 'region':
+                print('str/93 ',param_id)
                 list_of_accommodations2 = list_of_accommodations2.filter(region_id=uuid.UUID(param_id))
             print('param_id()=', uuid.UUID(param_id))
             # print(list_of_accommodations2.values('region_id__country_id'))

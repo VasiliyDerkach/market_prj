@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="300325+regions">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/authapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/authapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/mainapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/includes/inc_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/includes/inc_menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743343029822</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="300325+regions">
+      <option name="closed" value="true" />
+      <created>1743344670373</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743344670373</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
