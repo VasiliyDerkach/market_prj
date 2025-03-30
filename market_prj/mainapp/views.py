@@ -14,8 +14,8 @@ from .models import Accommodation, Regions, ListOfCountries
 def accommodations(request):
     title = 'размещение'
     format = 'icons'
-    type_param = None
-    cnt_case = []
+    typeparam = None
+    cntcase = None
     curent_user = auth.get_user(request)
     profile_curr_user = TravelUserProfile.objects.filter(user=curent_user.id)
     # print(list(profile_curr_user.values('accomm_format')),curent_user.id)
@@ -33,42 +33,42 @@ def accommodations(request):
                 format = 'table'
         if request.POST.get('btnс') and curent_user:
             btnc_id = request.POST.get('btnс')
-            type_param = 'country'
+            typeparam = 'country'
             UserCaseProfile.update_user_countryes(userid=curent_user.id, countryid=btnc_id)
         if request.POST.get('btnr') and curent_user:
             btnr_id = request.POST.get('btnr')
-            type_param = 'region'
+            typeparam = 'region'
             UserCaseProfile.update_user_parametrs(userid=curent_user.id,parametrid= btnr_id,param_type='region')
         if request.POST.get('btn_country_clear') and curent_user:
             print('free country')
-            type_param = 'country'
+            typeparam = 'country'
             UserCaseProfile.update_user_countryes(userid=curent_user.id, countryid='free')
         if (request.POST.get('btnс') or request.POST.get('btn_countryes')) and curent_user:
             print('btn2')
-            type_param = 'country'
-            cnt_case = list(UserCaseProfile.objects.filter(user_id=curent_user.id,context='country').values_list('param_id',flat=True))
+            typeparam = 'country'
+            cntcase = list(UserCaseProfile.objects.filter(user_id=curent_user.id,context='country').values_list('param_id',flat=True))
         if request.POST.get('btn_region_clear') and curent_user:
             print('free region')
-            type_param = 'region'
+            typeparam = 'region'
             UserCaseProfile.update_user_parametrs(userid=curent_user.id, countryid='free',param_type='region')
             # get_regions_of_countryes
         if request.POST.get('btnr_of_countryes') and curent_user:
-            type_param = 'region'
+            typeparam = 'region'
             countryes_case1 = list(
                 UserCaseProfile.objects.filter(user_id=curent_user.id, context='country').values_list('param_id',
                                                                                                   flat=True))
-                cnt_case = Regions.get_regions_of_countryes(countryes_case1)
+                cntcase = Regions.get_regions_of_countryes(countryes_case1)
         if (request.POST.get('btnr') or request.POST.get('btn_regions')) and curent_user:
             print('btnr')
-            type_param = 'region'
+            typeparam = 'region'
             countryes_case0 = list(UserCaseProfile.objects.filter(user_id=curent_user.id,context='region').values_list('param_id',flat=True))
 
         TravelUserProfile.objects.filter(user_id=curent_user.id).update(accomm_format=format)
         # print(btn_format)
     # list_of_accommodations = Accommodation.objects.filter(is_active=True)
-    print('countryes_case=', cnt_case)
+    print('countryes_case=', cntcase)
     # list_of_accommodations = Accommodation.get_country_items(countryes_case,'country')
-    list_of_accommodations = Accommodation.get_parametrs_items( cnt_case, type_param,'country')
+    list_of_accommodations = Accommodation.get_parametrs_items(param_id=cntcase, param_type=typeparam, join_type='country')
     # list_of_accommodations = Accommodation.get_country_items('00000000-0000-0000-0000-000000000003','country')
     list_of_country = ListOfCountries.objects.values('id','name')
     List_of_regions = Regions.objects.values('id','name')

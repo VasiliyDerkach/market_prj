@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="300325">
+    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="300325+regions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/authapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/authapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/basketapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/basketapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/mainapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/includes/inc_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/includes/inc_menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743327003948</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="300325+regions">
+      <option name="closed" value="true" />
+      <created>1743343029822</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1743343029822</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -160,6 +164,7 @@
     <MESSAGE value="280325" />
     <MESSAGE value="290325" />
     <MESSAGE value="300325" />
-    <option name="LAST_COMMIT_MESSAGE" value="300325" />
+    <MESSAGE value="300325+regions" />
+    <option name="LAST_COMMIT_MESSAGE" value="300325+regions" />
   </component>
 </project>
