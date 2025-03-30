@@ -54,10 +54,8 @@ def accommodations(request):
             # get_regions_of_countryes
         if request.POST.get('btnr_of_countryes') and curent_user:
             typeparam = 'region'
-            countryes_case1 = list(
-                UserCaseProfile.objects.filter(user_id=curent_user.id, context='country').values_list('param_id',
-                                                                                                  flat=True))
-                cntcase = Regions.get_regions_of_countryes(countryes_case1)
+            countryes_case1 = list(UserCaseProfile.objects.filter(user_id=curent_user.id, context='country').values_list('param_id',flat=True))
+            cntcase = Regions.get_regions_of_countryes(countryes_case1)
         if (request.POST.get('btnr') or request.POST.get('btn_regions')) and curent_user:
             print('btnr')
             typeparam = 'region'
