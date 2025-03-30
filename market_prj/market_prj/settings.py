@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'authapp',
     'adminapp',
     'aldjemy',
+    'basketapp',
 ]
 AUTH_USER_MODEL = 'authapp.TravelUser'
 AUTHENTICATION_BACKENDS = (

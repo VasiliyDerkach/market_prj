@@ -56,7 +56,9 @@
                        aria-expanded="false">
                         {{ user|default:'пользователь' }}
                     </a>
-
+                    <a class="dropdown-item" href="{% url 'basket:view' %}">
+                        корзина
+                    </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'auth:edit' %}">профиль</a>
 
