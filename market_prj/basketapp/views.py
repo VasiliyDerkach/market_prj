@@ -35,7 +35,7 @@ def basket_add(request, pk):
                                    accommodation=accommodation).first()
 
     if not basket:
-        basket = Basket(user=request.user, accommodation=accommodation)
+        basket = Basket(user=request.user, accommodation=accommodation, country_id=accommodation.region.country_id)
 
     basket.nights += 1
     basket.save()
@@ -54,11 +54,12 @@ def basket_remove(request, pk):
 
 @login_required
 def basket_edit(request, pk, nights):
-    print("привет")
+    print("привет pk = ",pk)
     if request.is_ajax():
         nights = int(nights)
-        new_basket_item = Basket.objects.get(pk)
-
+        # new_basket_item = Basket.objects.get(pk)
+        new_basket_item = Basket.objects.filter(id=pk).get()
+        print('Basket.objects.get(pk)=',new_basket_item)
         if nights > 0:
             new_basket_item.nights = nights
             new_basket_item.save()

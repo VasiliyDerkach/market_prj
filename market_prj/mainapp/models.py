@@ -22,7 +22,9 @@ class Regions(models.Model):
 
     def __str__(self):
         return self.name
-
+    @staticmethod
+    def get_regions_of_countryes(lst_countryes):
+        return Regions.objects.filter(country_id__in=lst_countryes)
 class Accommodation(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     country = models.ForeignKey(ListOfCountries, on_delete=models.CASCADE)
@@ -44,7 +46,7 @@ class Accommodation(models.Model):
 
     @staticmethod
     def get_items():
-        reslt = Accommodation.objects.filter(is_active=True).order_by('country','regions','name')
+        reslt = Accommodation.objects.filter(is_active=True).order_by('region_id__country_id','regions','name')
         return reslt
 
     @staticmethod
@@ -69,10 +71,31 @@ class Accommodation(models.Model):
             # list_of_accommodations2 = list_of_accommodations2.values('name','region','price','region_id__country_id__name')
             # print(list_of_accommodations2.values('region_id__country_id__name'))
 
-        list_of_accommodations2 = list_of_accommodations2.order_by('name')
+        list_of_accommodations2 = list_of_accommodations2.order_by('region_id__country_id','region_id','name')
         # print('la= ',list_of_accommodations2[0])
         return list_of_accommodations2
 
+    @staticmethod
+    def get_parametrs_items(param_id,param_type, join_type):
+        list_of_accommodations2 = Accommodation.objects.select_related('region')
+        if join_type == 'country':
+            list_of_accommodations2 = list_of_accommodations2.select_related('country')
+        if isinstance(param_id, list):
+            print('param_id(list)=', param_id)
+            if param_type=='country':
+                list_of_accommodations2 = list_of_accommodations2.filter(region_id__country_id__in=param_id)
+            elif param_type=='region':
+                list_of_accommodations2 = list_of_accommodations2.filter(region_id__in=param_id)
+        elif param_id:
+            if param_type=='country':
+                list_of_accommodations2 = list_of_accommodations2.filter(region_id__country_id=uuid.UUID(param_id))
+            elif param_type == 'region':
+                list_of_accommodations2 = list_of_accommodations2.filter(region_id=uuid.UUID(param_id))
+            print('param_id()=', uuid.UUID(param_id))
+            # print(list_of_accommodations2.values('region_id__country_id'))
+
+        list_of_accommodations2 = list_of_accommodations2.order_by('region_id__country_id', 'region_id', 'name')
+        return list_of_accommodations2
 
     def __str__(self):
         return f'{self.name} ({self.country.name})'

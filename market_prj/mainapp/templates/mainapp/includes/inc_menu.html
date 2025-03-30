@@ -16,7 +16,7 @@
                 <a class="nav-link dropdown-toggle"
                        href="" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
-                    Выбор стран
+                    Фильтр стран
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'acc:index' %}">
@@ -48,6 +48,46 @@
                         </form>
                 </div>
             </li>
+                        <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                       href="" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                    Фильтр регионов
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'acc:index' %}">
+                            Все
+                        </a>
+                        <form method="post">
+                        {% csrf_token %}
+                            <button type="submit" name="btn_regions" id=btn_regions" value="btn_regions">
+                                Применить
+                            </button>
+                            <button type="submit" name="btn_region_clear" id="btn_region_clear" value="btn_region_clear">
+                                Сбросить
+                            </button>
+                            <button type="submit" name="btnr_of_countryes" id="btnr_of_countryes" value="btnr_of_countryes">
+                                + Регионы стран
+                            </button>
+
+                            {% for countr in list_of_regions %}
+                            <div>
+                                <button type="submit" name="btnr" id="btnс_{{ countr.id }}" value="{{ countr.id }}">
+                                    {% if countr.is_active %}
+                                        [x] {{ countr.name|title }}/{{ countr.country.name|title }}
+                                    {% else %}
+                                        [ ] {{ countr.name|title }}/{{ countr.country.name|title }}
+                                    {% endif %}
+
+                                </button>
+
+                            </div>
+
+                            {% endfor %}
+                        </form>
+                </div>
+            </li>
+
             <li class="nav-item dropdown">
                 {% if user.is_authenticated %}
 

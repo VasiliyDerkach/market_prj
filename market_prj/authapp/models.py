@@ -67,4 +67,8 @@ class UserCaseProfile(models.Model):
             if UserCaseProfile.objects.filter(user_id=userid,param_id=parametrid):
                 UserCaseProfile.objects.filter(user_id=userid, param_id=parametrid, context=param_type).delete()
             else:
-                UserCaseProfile.objects.create(user_id=userid, param_id=parametrid,context=param_type)
+                if isinstance(parametrid,list):
+                    for p in parametrid:
+                        UserCaseProfile.objects.create(user_id=userid, param_id=p,context=param_type)
+                elif parametrid:
+                    UserCaseProfile.objects.create(user_id=userid, param_id=parametrid,context=param_type)
