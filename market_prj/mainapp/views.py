@@ -86,9 +86,10 @@ def accommodations(request):
             elm['is_active'] = False
     # for a in list_of_accommodations:
     #     print('accomm=',a.name,a.region,a.region.country)
-
+    pagename = 'accommodations'
     content = {
         'title': title,
+        'pagename': pagename,
         'list_of_accommodations': list_of_accommodations,
         'list_of_country': list_of_country,
         'list_of_regions': List_of_regions,
