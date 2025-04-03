@@ -51,15 +51,10 @@ class Accommodation(models.Model):
 
     @staticmethod
     def get_country_items(country_id, join_type):
-        # list_of_accommodations = Accommodation.sa.query()
-        # list_of_accommodations1 = list_of_accommodations.join(Regions.sa,Accommodation.sa.region.has(Regions.sa.id))
-        # list_of_accommodations2 = list_of_accommodations1.filter(Regions.sa.country.has(uuid.UUID(country_id))).all()
-        # # list_of_accommodations2 = list_of_accommodations1.filter(Regions.sa.country.has(uuid(country_id)))
         list_of_accommodations2 = Accommodation.objects.select_related('region')
         if join_type=='country':
             list_of_accommodations2 = list_of_accommodations2.select_related('country')
         if isinstance(country_id,list):
-            # country_id1 = ( uuid.UUID(cnt_id) for cnt_id in country_id)
             print('country_id(list)=', country_id)
             list_of_accommodations2 = list_of_accommodations2.filter(region_id__country_id__in=country_id)
 
@@ -100,3 +95,7 @@ class Accommodation(models.Model):
 
     def __str__(self):
         return f'{self.name} ({self.country.name})'
+
+# class Apartmen(models.Model):
+#     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+#     apartmen = models.ForeignKey(Accommodation, on_delete=models.CASCADE)
