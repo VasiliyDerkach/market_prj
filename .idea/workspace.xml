@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="300325+regions">
+      <change afterPath="$PROJECT_DIR$/market_prj/basketapp/migrations/0002_basket_apartmen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/basketapp/migrations/0003_remove_basket_apartmen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/basketapp/migrations/0004_basket_apartmen.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/market_prj/mainapp/migrations/0003_apartmen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/market_prj/mainapp/migrations/0004_auto_20250403_2049.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/basketapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/basketapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/mainapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,17 +173,6 @@
     </task>
     <option name="localTasksCounter" value="13" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

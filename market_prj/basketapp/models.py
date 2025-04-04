@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from mainapp.models import Accommodation, ListOfCountries, Regions
+from mainapp.models import Accommodation, ListOfCountries, Regions, Apartmen
 import uuid
 
 class Basket(models.Model):
@@ -11,6 +11,7 @@ class Basket(models.Model):
         on_delete=models.CASCADE,
         related_name='basket')
     accommodation = models.ForeignKey(Accommodation, on_delete=models.CASCADE)
+    apartmen = models.ForeignKey(Apartmen, on_delete=models.CASCADE,blank=True,default=None,null=True)
     nights = models.PositiveIntegerField(verbose_name='кол-во ночей', default=0)
     add_datetime = models.DateTimeField(verbose_name='время', auto_now_add=True)
 
