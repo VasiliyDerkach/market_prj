@@ -116,5 +116,5 @@ class Apartmen(models.Model):
         verbose_name='цена % об базового тарифа', max_digits=8, decimal_places=2, default=0)
 
     @staticmethod
-    def get_accommodation_items(accommodation_id):
-        return Apartmen.objects.filter(accommodation_id=accommodation_id)
+    def get_accommodation_items(accommodation):
+        return Apartmen.objects.filter(accommodation=accommodation)

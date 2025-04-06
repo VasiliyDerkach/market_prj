@@ -1,0 +1,26 @@
+<table class="table apartmens_list">
+        <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Наценка %</th>
+            <th>Выбрать</th>
+        </tr>
+        </thead>
+        <tbody>
+        <fieldset>
+        {% for item in list_apartmen %}
+            <tr>
+<!--                <td class="td1 apartmens_list">{{ item.is_choise }}</td>-->
+                <td>{{ item.name|title }}</td>
+                <td>{{ item.price }}</td>
+                <td>
+                    <div>
+                    <input type="radio" id= {{ item.id }} name="radio_app" value={{ item.id }} />
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </fieldset>
+        </tbody>
+    </table>
+

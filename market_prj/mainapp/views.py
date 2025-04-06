@@ -1,10 +1,21 @@
 from django.shortcuts import render
 from django.contrib import auth
-import uuid
-import aldjemy
-# from market_prj.market_prj.authapp import models
 from authapp.models import TravelUser,TravelUserProfile,UserCaseProfile
 import authapp
+from django.shortcuts import get_object_or_404
+from django.shortcuts import HttpResponseRedirect
+from django.urls import reverse
+from django.urls import reverse_lazy
+from django.db import transaction
+
+from django.forms import inlineformset_factory
+
+from django.views.generic import ListView
+from django.views.generic import CreateView
+from django.views.generic import UpdateView
+from django.views.generic import DeleteView
+from django.views.generic.detail import DetailView
+from mainapp.models import Apartmen
 def main(request):
     return render(request, 'mainapp/index.html')
 
@@ -103,10 +114,29 @@ from .models import ListOfCountries
 
 def accommodation(request, pk):
     title = 'продукты'
+    list_apartmen = Apartmen.get_accommodation_items(pk)
+    if request.method == 'POST':
+        print(request.POST)
+        if request.POST.get('btn_accom_add'):
+            print('mainapp btn_accom_add')
+            for elm in list_apartmen:
+                idap = elm.objects.values('id').get()
+                val = request.POST.get(idap)
+                print(idap, val)
+                if val:
+                    print('V')
+
 
     content = {
         'title': title,
         'accommodation': get_object_or_404(Accommodation, pk=pk),
+        'list_apartmen': list_apartmen,
     }
-
+    # print('request=',request)
     return render(request, 'mainapp/accommodation_details.html', content)
+
+class ApartmenList(ListView):
+    model = Apartmen
+    def get_queryset(self):
+        print('self.request=', self.request)
+        return Apartmen.objects.filter( accommodation_id=self.request.accommodation_id)

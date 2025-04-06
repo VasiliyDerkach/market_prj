@@ -20,12 +20,18 @@
                     <p>стоимость за сутки: {{ accommodation.price }}</p>
                     <br><br><br><br>
                 </div>
+                {% include 'mainapp/includes/apartmens_list.html' %}
                 <div class="float-right">
-                    <button class="btn  btn-danger ">
-                        <a style="color: white; text-decoration: none"
-                            href="{% url 'basket:add' accommodation.pk %}">Забронировать</a>
-                    </button>
-</div>
+                    <form method="post">
+                    {% csrf_token %}
+                        <input type="hidden" name="btn_accom_add" id="btn_accom_add" />
+                        <button class="btn  btn-danger " type="submit" >
+                            <a style="color: white; text-decoration: none"
+                                href="{% url 'basket:add' accommodation.pk %}">Забронировать</a>
+                        </button>
+                    </form>
+
+                </div>
 
             </div>
 
