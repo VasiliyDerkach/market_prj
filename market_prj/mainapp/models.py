@@ -103,3 +103,18 @@ class Accommodation(models.Model):
 class Apartmen(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     accommodation = models.ForeignKey(Accommodation, on_delete=models.CASCADE)
+    name = models.CharField(verbose_name='название типа номеров',
+                                           max_length=128, unique=True)
+    image = models.ImageField(upload_to='apartmen_img', blank=True,default=None)
+    short_desc = models.TextField(verbose_name='краткое описание типа номеров',
+                                  max_length=60, blank=True,default=None)
+    description = models.TextField(verbose_name='описание типа номеров',
+                                   blank=True,default=None)
+    availability = models.PositiveIntegerField(
+				verbose_name='количество свободных номеров',default=None)
+    price = models.DecimalField(
+        verbose_name='цена % об базового тарифа', max_digits=8, decimal_places=2, default=0)
+
+    @staticmethod
+    def get_accommodation_items(accommodation_id):
+        return Apartmen.objects.filter(accommodation_id=accommodation_id)
