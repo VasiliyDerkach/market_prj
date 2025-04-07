@@ -16,6 +16,7 @@ from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from django.views.generic.detail import DetailView
 from mainapp.models import Apartmen
+from basketapp.models import Basket
 def main(request):
     return render(request, 'mainapp/index.html')
 
@@ -116,16 +117,18 @@ def accommodation(request, pk):
     title = 'продукты'
     list_apartmen = Apartmen.get_accommodation_items(pk)
     if request.method == 'POST':
-        print(request.POST)
         if request.POST.get('btn_accom_add'):
-            print('mainapp btn_accom_add')
-            for elm in list_apartmen:
-                idap = elm.objects.values('id').get()
-                val = request.POST.get(idap)
-                print(idap, val)
-                if val:
-                    print('V')
+            val = request.POST.getlist('radio_app')
+            if val:
+                for elm in list_apartmen:
+                    if str(elm.id) in list(val):
+                        basket = Basket.objects.filter(user=request.user,accommodation_id=pk,apartmen_id=str(elm)).first()
+                        if not basket:
+                            basket = Basket(user=request.user, accommodation=accommodation,
+                                            country_id=accommodation.region.country_id,apartmen_id=idap)
 
+                        basket.nights += 1
+                        basket.save()
 
     content = {
         'title': title,

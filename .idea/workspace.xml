@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="300325+regions">
-      <change afterPath="$PROJECT_DIR$/market_prj/basketapp/migrations/0002_basket_apartmen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/market_prj/basketapp/migrations/0003_remove_basket_apartmen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/market_prj/basketapp/migrations/0004_basket_apartmen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/market_prj/mainapp/migrations/0003_apartmen.py" afterDir="false" />
+    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="aprt all fields radio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/basketapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/basketapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/basketapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/basketapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/mainapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/accommodation_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/accommodation_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/includes/apartmens_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/templates/mainapp/includes/apartmens_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,14 +20,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -171,7 +172,39 @@
       <option name="project" value="LOCAL" />
       <updated>1743347753115</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="aprtnew">
+      <option name="closed" value="true" />
+      <created>1743778841934</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743778841934</updated>
+    </task>
+    <task id="LOCAL-00014" summary="aprtnew">
+      <option name="closed" value="true" />
+      <created>1743778931915</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1743778931915</updated>
+    </task>
+    <task id="LOCAL-00015" summary="aprt all fields">
+      <option name="closed" value="true" />
+      <created>1743929905387</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1743929905387</updated>
+    </task>
+    <task id="LOCAL-00016" summary="aprt all fields radio">
+      <option name="closed" value="true" />
+      <created>1743953645652</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1743953645652</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -187,6 +220,9 @@
     <MESSAGE value="290325" />
     <MESSAGE value="300325" />
     <MESSAGE value="300325+regions" />
-    <option name="LAST_COMMIT_MESSAGE" value="300325+regions" />
+    <MESSAGE value="aprtnew" />
+    <MESSAGE value="aprt all fields" />
+    <MESSAGE value="aprt all fields radio" />
+    <option name="LAST_COMMIT_MESSAGE" value="aprt all fields radio" />
   </component>
 </project>

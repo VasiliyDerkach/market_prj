@@ -4,12 +4,20 @@ import uuid
 
 from django.db import models
 import authapp
-class ListOfCountries(models.Model):
+class PartsOfWorld(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(verbose_name='имя', max_length=64, unique=True)
     description = models.TextField(verbose_name='описание', blank=True)
     is_active = models.BooleanField(verbose_name='активна', default=True)
 
+    def __str__(self):
+        return self.name
+class ListOfCountries(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(verbose_name='имя', max_length=64, unique=True)
+    description = models.TextField(verbose_name='описание', blank=True)
+    is_active = models.BooleanField(verbose_name='активна', default=True)
+    # partsofworld = models.ForeignKey(PartsOfWorld, on_delete=models.CASCADE,blank=True,default=None,null=True)
     def __str__(self):
         return self.name
 
@@ -51,28 +59,17 @@ class Accommodation(models.Model):
 
     @staticmethod
     def get_country_items(country_id, join_type):
-        # list_of_accommodations = Accommodation.sa.query()
-        # list_of_accommodations1 = list_of_accommodations.join(Regions.sa,Accommodation.sa.region.has(Regions.sa.id))
-        # list_of_accommodations2 = list_of_accommodations1.filter(Regions.sa.country.has(uuid.UUID(country_id))).all()
-        # # list_of_accommodations2 = list_of_accommodations1.filter(Regions.sa.country.has(uuid(country_id)))
         list_of_accommodations2 = Accommodation.objects.select_related('region')
         if join_type=='country':
             list_of_accommodations2 = list_of_accommodations2.select_related('country')
         if isinstance(country_id,list):
-            # country_id1 = ( uuid.UUID(cnt_id) for cnt_id in country_id)
             print('country_id(list)=', country_id)
             list_of_accommodations2 = list_of_accommodations2.filter(region_id__country_id__in=country_id)
 
         elif country_id:
             list_of_accommodations2 = list_of_accommodations2.filter(region_id__country_id=uuid.UUID(country_id))
-            # list_of_accommodations2.filter(country_id=country_id)
-            print('country_id()=',uuid.UUID(country_id))
-            print(list_of_accommodations2.values('region_id__country_id'))
-            # list_of_accommodations2 = list_of_accommodations2.values('name','region','price','region_id__country_id__name')
-            # print(list_of_accommodations2.values('region_id__country_id__name'))
 
         list_of_accommodations2 = list_of_accommodations2.order_by('region_id__country_id','region_id','name')
-        # print('la= ',list_of_accommodations2[0])
         return list_of_accommodations2
 
     @staticmethod
@@ -90,11 +87,8 @@ class Accommodation(models.Model):
             if param_type=='country':
                 list_of_accommodations2 = list_of_accommodations2.filter(region_id__country_id=uuid.UUID(param_id))
             elif param_type == 'region':
-                print('str/93 ',param_id)
                 list_of_accommodations2 = list_of_accommodations2.filter(region_id=uuid.UUID(param_id))
             print('param_id()=', uuid.UUID(param_id))
-            # print(list_of_accommodations2.values('region_id__country_id'))
-
         list_of_accommodations2 = list_of_accommodations2.order_by('region_id__country_id', 'region_id', 'name')
         return list_of_accommodations2
 

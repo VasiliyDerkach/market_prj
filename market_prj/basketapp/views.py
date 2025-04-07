@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 from basketapp.models import Basket
-from mainapp.models import Accommodation
+from mainapp.models import Accommodation, Apartmen
 
 
 # отображение списка записей корзины
@@ -33,6 +33,7 @@ def basket_add(request, pk):
     accommodation = get_object_or_404(Accommodation, pk=pk)
     basket = Basket.objects.filter(user=request.user,
                                    accommodation=accommodation).first()
+    # list_apartmen = Apartmen.get_accommodation_items(pk)
 
     if not basket:
         basket = Basket(user=request.user, accommodation=accommodation, country_id=accommodation.region.country_id)
