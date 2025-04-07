@@ -4,9 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="070425">
+    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="070425+">
+      <change afterPath="$PROJECT_DIR$/market_prj/mainapp/migrations/0005_partsofworld.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/includes/inc_order_actions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/includes/inc_order_summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_confirm_delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/mainapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/basketapp/templates/basketapp/basket.html" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/basketapp/templates/basketapp/basket.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/market_prj/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/market_prj/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/market_prj/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/market_prj/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744038168284</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="070425+">
+      <option name="closed" value="true" />
+      <created>1744038628238</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1744038628238</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -228,6 +256,7 @@
     <MESSAGE value="aprt all fields" />
     <MESSAGE value="aprt all fields radio" />
     <MESSAGE value="070425" />
-    <option name="LAST_COMMIT_MESSAGE" value="070425" />
+    <MESSAGE value="070425+" />
+    <option name="LAST_COMMIT_MESSAGE" value="070425+" />
   </component>
 </project>

@@ -3,6 +3,15 @@
 
 {% block content %}
     <div class="container">
+        div class="row justify-content-between mt-2">
+        <button class="btn btn-outline-success">
+            <a style="color: black; text-decoration: none"
+				href="{% url 'order:order_create' %}">
+                к оформлению
+            </a>
+        </button>
+        </div>
+
         <button class="btn btn-outline-secondary">
             <a style="color: black; text-decoration: none" href="{% url 'main' %}">
                 на главную
