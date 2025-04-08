@@ -6,7 +6,9 @@
             <div>
                 <span class="col-form-label"><b>Страна: </b>{{ reservation.accommodation.country.name|title }}</span>
                 <span class=""><b>Размещение: </b>{{ reservation.accommodation.name|title }}</span>
+                <span class=""><b>Тип номера: </b>{{ reservation.apartmen.name|title }}</span>
                 <span class=""><b>Стоимость суток: </b>{{ reservation.accommodation.price }}&nbspруб</span>
+                <span class=""><b>Наценка за тип номер: </b>{{ reservation.apartmen.price }}&nbsp%</span>
                 <span class=""><b>Количество ночей: </b>{{ reservation.nights }}</span>
                 <input type="number" name="{{ reservation.pk }}" min="0" value="{{ reservation.nights }}">
 
