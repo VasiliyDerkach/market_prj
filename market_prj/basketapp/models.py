@@ -18,7 +18,10 @@ class Basket(models.Model):
     # стоимость одного предложения компании
     @property
     def accommodation_cost(self):
-        return self.accommodation.price * self.nights
+        prc = self.accommodation.price * self.nights
+        if self.apartmen:
+            prc = int(self.accommodation.price * self.nights *(1+self.apartmen.price/100))
+        return prc
 
     # общее количество ночей по всем заказам в корзине
     @property

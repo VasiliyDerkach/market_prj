@@ -15,7 +15,12 @@ def basket(request):
     title = 'корзина'
     basket_items = Basket.objects.filter(
         user=request.user).order_by('accommodation__region_id__country_id')
-
+    for itm in basket_items:
+        print(itm)
+        if itm.apartmen.price:
+            itm.price_plus = int(itm.accommodation.price*(1+itm.apartmen.price/100))
+        else:
+            itm.price_plus = itm.accommodation.price
     content = {
         'title': title,
         'basket_items': basket_items,

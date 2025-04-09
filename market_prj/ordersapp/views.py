@@ -27,7 +27,9 @@ class OrderList(ListView):
     model = Order
 
     def get_queryset(self):
-        return Order.objects.filter(user=self.request.user)
+        order_items = Order.objects.filter(user=self.request.user)
+
+        return order_items
 
 
 # создание заказа с товарными позициями
@@ -55,7 +57,10 @@ class OrderItemsCreate(CreateView):
                 for num, form in enumerate(formset.forms):
                     form.initial['accommodation'] = basket_items[num].accommodation
                     form.initial['nights'] = basket_items[num].nights
-                    form.initial['price'] = basket_items[num].accommodation.price
+                    if basket_items[num].apartmen:
+                        form.initial['price'] = int(basket_items[num].accommodation.price*(1+basket_items[num].apartmen.price/100))
+                    else:
+                        form.initial['price'] = basket_items[num].accommodation.price
                 basket_items.delete()
             else:
                 formset = OrderFormSet()
