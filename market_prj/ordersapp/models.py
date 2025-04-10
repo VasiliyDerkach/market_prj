@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
-from mainapp.models import Accommodation
-
+from mainapp.models import Accommodation, Apartmen
+import uuid
 
 # Заказ
 class Order(models.Model):
@@ -20,6 +20,7 @@ class Order(models.Model):
         (READY, 'подтверждён размещением'),
         (CANCEL, 'отменён'),
     )
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created = models.DateTimeField(verbose_name='создан', auto_now_add=True)
@@ -58,10 +59,13 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     order = models.ForeignKey(Order, related_name='orderitems',
                                on_delete=models.CASCADE)
     accommodation = models.ForeignKey(
         Accommodation, verbose_name='размещение', on_delete=models.CASCADE)
+    apartmen = models.ForeignKey(Apartmen, on_delete=models.CASCADE,blank=True,default=None,null=True)
+
     nights = models.PositiveIntegerField(verbose_name='количество', default=0)
 
     def get_accommodation_cost(self):
