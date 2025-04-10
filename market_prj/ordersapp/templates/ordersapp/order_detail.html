@@ -11,6 +11,7 @@
                 <span class="category_name">{{ item.accommodation.country.name }}</span>
                 <span class="product_name">{{ item.accommodation.name }}</span>
                 <span class="product_price">{{ item.accommodation.price }}&nbspруб</span>
+                <span class="product_price">+{{ item.apartmen.price }}&nbsp%</span>
                 <span class="product_quantitiy">x {{ item.nights }}
                 {% if item.nights == 1 %} ночь
                 {% elif 1 < item.nights and item.nights < 5 %} ночи

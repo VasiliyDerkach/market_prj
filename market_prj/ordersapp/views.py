@@ -28,7 +28,6 @@ class OrderList(ListView):
 
     def get_queryset(self):
         order_items = Order.objects.filter(user=self.request.user)
-
         return order_items
 
 

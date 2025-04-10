@@ -45,8 +45,8 @@ class Order(models.Model):
         return sum(list(map(lambda x: x.nights, accommodations)))
 
     def get_total_cost(self):
-        accommodation = self.orderitems.select_related()
-        return sum(list(map(lambda x: x.nights * x.accommodation.price,
+        accommodation = self.orderitems.select_related('accommodation').select_related('apartmen')
+        return sum(list(map(lambda x: x.nights *  x.accommodation.price if not x.apartmen else int(x.nights *  x.accommodation.price * (1+ x.apartmen.price/100)),
                             accommodation)))
 
     def delete(self):
@@ -70,7 +70,7 @@ class OrderItem(models.Model):
 
     def get_accommodation_cost(self):
         if self.apartmen:
-            reslt = self.accommodation.price * self.nights * int(1+self.apartmen.price/100)
+            reslt = int(self.accommodation.price * self.nights * (1+self.apartmen.price/100))
         else:
             reslt = self.accommodation.price * self.nights
         return reslt

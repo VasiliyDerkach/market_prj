@@ -112,3 +112,5 @@ class Apartmen(models.Model):
     @staticmethod
     def get_accommodation_items(accommodation):
         return Apartmen.objects.filter(accommodation=accommodation)
+    def __str__(self):
+        return f'{self.name} ({self.accommodation.name})'
