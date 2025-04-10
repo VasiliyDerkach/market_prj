@@ -56,6 +56,7 @@ class OrderItemsCreate(CreateView):
                 formset = OrderFormSet()
                 for num, form in enumerate(formset.forms):
                     form.initial['accommodation'] = basket_items[num].accommodation
+                    form.initial['apartmen'] = basket_items[num].apartmen
                     form.initial['nights'] = basket_items[num].nights
                     if basket_items[num].apartmen:
                         form.initial['price'] = int(basket_items[num].accommodation.price*(1+basket_items[num].apartmen.price/100))

@@ -69,4 +69,8 @@ class OrderItem(models.Model):
     nights = models.PositiveIntegerField(verbose_name='количество', default=0)
 
     def get_accommodation_cost(self):
-        return self.accommodation.price * self.nights
+        if self.apartmen:
+            reslt = self.accommodation.price * self.nights * int(1+self.apartmen.price/100)
+        else:
+            reslt = self.accommodation.price * self.nights
+        return reslt

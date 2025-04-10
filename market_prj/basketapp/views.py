@@ -17,7 +17,7 @@ def basket(request):
         user=request.user).order_by('accommodation__region_id__country_id')
     for itm in basket_items:
         print(itm)
-        if itm.apartmen.price:
+        if itm.apartmen:
             itm.price_plus = int(itm.accommodation.price*(1+itm.apartmen.price/100))
         else:
             itm.price_plus = itm.accommodation.price
