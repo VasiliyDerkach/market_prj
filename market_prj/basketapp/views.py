@@ -16,11 +16,11 @@ def basket(request):
     basket_items = Basket.objects.filter(
         user=request.user).order_by('accommodation__region_id__country_id')
     for itm in basket_items:
-        print(itm)
         if itm.apartmen:
             itm.price_plus = int(itm.accommodation.price*(1+itm.apartmen.price/100))
         else:
             itm.price_plus = itm.accommodation.price
+        print('itm',itm)
     content = {
         'title': title,
         'basket_items': basket_items,
@@ -60,12 +60,12 @@ def basket_remove(request, pk):
 
 @login_required
 def basket_edit(request, pk, nights):
-    print("привет pk = ",pk)
+    # print("привет pk = ",pk)
     if request.is_ajax():
         nights = int(nights)
         # new_basket_item = Basket.objects.get(pk)
         new_basket_item = Basket.objects.filter(id=pk).get()
-        print('Basket.objects.get(pk)=',new_basket_item)
+        # print('Basket.objects.get(pk)=',new_basket_item)
         if nights > 0:
             new_basket_item.nights = nights
             new_basket_item.save()
