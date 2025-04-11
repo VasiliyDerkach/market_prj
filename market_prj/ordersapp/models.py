@@ -45,9 +45,10 @@ class Order(models.Model):
         return sum(list(map(lambda x: x.nights, accommodations)))
 
     def get_total_cost(self):
-        accommodation = self.orderitems.select_related('accommodation').select_related('apartmen')
-        return sum(list(map(lambda x: x.nights *  x.accommodation.price if not x.apartmen else int(x.nights *  x.accommodation.price * (1+ x.apartmen.price/100)),
-                            accommodation)))
+        accommodation = self.orderitems.select_related()
+        # return sum(list(map(lambda x: x.nights *  x.accommodation.price if not x.apartmen else int(x.nights *  x.accommodation.price * (1+ x.apartmen.price/100)),
+        #                     accommodation)))
+        return sum(list(map(lambda x: x.nights *  x.price_order ,accommodation)))
 
     def delete(self):
         for item in self.orderitems.select_related():
@@ -65,6 +66,8 @@ class OrderItem(models.Model):
     accommodation = models.ForeignKey(
         Accommodation, verbose_name='размещение', on_delete=models.CASCADE)
     apartmen = models.ForeignKey(Apartmen, on_delete=models.CASCADE,blank=True,default=None,null=True)
+    price_order = models.DecimalField(
+        verbose_name='цена бронирования', max_digits=8, decimal_places=2, default=0)
 
     nights = models.PositiveIntegerField(verbose_name='количество', default=0)
 

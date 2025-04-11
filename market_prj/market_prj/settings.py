@@ -29,8 +29,7 @@ SECRET_KEY = '19wp-gnbgda_rj#j%&b7kg=!!+zk@&y-=0nn!dlf%x03j4_@%8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
