@@ -58,9 +58,9 @@ class OrderItemsCreate(CreateView):
                     form.initial['apartmen'] = basket_items[num].apartmen
                     form.initial['nights'] = basket_items[num].nights
                     if basket_items[num].apartmen:
-                        form.initial['price'] = int(basket_items[num].accommodation.price*(1+basket_items[num].apartmen.price/100))
+                        form.initial['price_oder'] = int(basket_items[num].accommodation.price*(1+basket_items[num].apartmen.price/100))
                     else:
-                        form.initial['price'] = basket_items[num].accommodation.price
+                        form.initial['price_order'] = basket_items[num].accommodation.price
                 basket_items.delete()
             else:
                 formset = OrderFormSet()
