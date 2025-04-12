@@ -20,9 +20,8 @@ class OrderItemForm(forms.ModelForm):
     price = forms.CharField(label='цена', required=False)
     exclude = ()
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self,  *args, **kwargs):
         super(OrderItemForm, self).__init__(*args, **kwargs)
-        # self.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation=self.instance.accommodation)
         # print(self.instance.apartmen_id)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'

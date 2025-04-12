@@ -20,7 +20,7 @@ from basketapp.models import Basket
 from ordersapp.models import Order
 from ordersapp.models import OrderItem
 from ordersapp.forms import OrderItemForm
-
+from mainapp.models import Apartmen
 
 # список заказов
 class OrderList(ListView):
@@ -54,6 +54,7 @@ class OrderItemsCreate(CreateView):
                                                      fields='__all__')
                 formset = OrderFormSet()
                 for num, form in enumerate(formset.forms):
+                    form.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation=basket_items[num].accommodation)
                     form.initial['accommodation'] = basket_items[num].accommodation
                     form.initial['apartmen'] = basket_items[num].apartmen
                     form.initial['nights'] = basket_items[num].nights
