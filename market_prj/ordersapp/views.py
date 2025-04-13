@@ -101,7 +101,7 @@ class OrderItemsUpdate(UpdateView):
                                              fields='__all__')
         formset = OrderFormSet()
         for num, form in enumerate(formset.forms):
-            form.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation=form.fields['accommodation'])
+            form.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation_id=form.fields['accommodation_id'])
 
         if self.request.POST:
             data['orderitems'] = OrderFormSet(self.request.POST, instance=self.object)
