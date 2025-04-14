@@ -98,7 +98,7 @@ DATABASES = {
     # 'default': {
     #     'NAME': 'market_prj_db',
     #     'ENGINE': 'django.db.backends.postgresql',
-    #     # "ENGINE": "django.db.backends.postgresql_psycopg2",
+    #     "ENGINE": "django.db.backends.postgresql_psycopg2",
     #     'USER': 'prj_user',
     #     'PASSWORD': 'prj_user',
     #     'HOST': 'localhost',

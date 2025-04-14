@@ -121,7 +121,7 @@ def accommodation(request, pk):
     if request.method == 'POST':
         if request.POST.get('btn_accom_add'):
             val = request.POST.getlist('radio_app')
-            if val:
+            if val and request.user:
                 for elm in list_apartmen:
                     if str(elm.id) in list(val):
                         basket = Basket.objects.filter(user=request.user,accommodation_id=pk,apartmen_id=elm.id).first()

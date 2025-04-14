@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.shortcuts import HttpResponseRedirect
+from decimal import Decimal
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.db import transaction
@@ -59,8 +60,14 @@ class OrderItemsCreate(CreateView):
                     form.initial['apartmen'] = basket_items[num].apartmen
                     form.initial['nights'] = basket_items[num].nights
                     if basket_items[num].apartmen:
-                        form.initial['price_oder'] = int(basket_items[num].accommodation.price*(1+basket_items[num].apartmen.price/100))
+                        price_apart = 1+basket_items[num].apartmen.price/100
+                        # price_apart = price_apart.quantize(Decimal("1.00"))
+                        print('price_apart=',price_apart,'type=',type(price_apart))
+                        print(type(basket_items[num].accommodation.price))
+                        # form.initial['price_oder'] = price_apart
+                        form.initial['price_order'] = (basket_items[num].accommodation.price * price_apart).quantize(Decimal("1.00"))
                     else:
+                        print(type(basket_items[num].accommodation.price))
                         form.initial['price_order'] = basket_items[num].accommodation.price
                 basket_items.delete()
             else:
