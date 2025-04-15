@@ -62,12 +62,12 @@ class OrderItemsCreate(CreateView):
                     if basket_items[num].apartmen:
                         price_apart = 1+basket_items[num].apartmen.price/100
                         # price_apart = price_apart.quantize(Decimal("1.00"))
-                        print('price_apart=',price_apart,'type=',type(price_apart))
-                        print(type(basket_items[num].accommodation.price))
+                        # print('price_apart=',price_apart,'type=',type(price_apart))
+                        # print(type(basket_items[num].accommodation.price))
                         # form.initial['price_oder'] = price_apart
                         form.initial['price_order'] = (basket_items[num].accommodation.price * price_apart).quantize(Decimal("1.00"))
                     else:
-                        print(type(basket_items[num].accommodation.price))
+                        # print(type(basket_items[num].accommodation.price))
                         form.initial['price_order'] = basket_items[num].accommodation.price
                 basket_items.delete()
             else:

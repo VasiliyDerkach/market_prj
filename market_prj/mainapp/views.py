@@ -124,7 +124,10 @@ def accommodation(request, pk):
             if val and request.user:
                 for elm in list_apartmen:
                     if str(elm.id) in list(val):
-                        basket = Basket.objects.filter(user=request.user,accommodation_id=pk,apartmen_id=elm.id).first()
+                        if request.user:
+                            basket = Basket.objects.filter(user=request.user,accommodation_id=pk,apartmen_id=elm.id).first()
+                        else:
+                            basket = None
                         if not basket:
                             basket = Basket(user=request.user, accommodation=accommodation,
                                             country_id=accommodation.region.country_id,apartmen_id=elm.id)

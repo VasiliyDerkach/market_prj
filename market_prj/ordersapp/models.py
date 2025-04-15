@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from mainapp.models import Accommodation, Apartmen
+from decimal import Decimal
 import uuid
 
 # Заказ
@@ -76,7 +77,7 @@ class OrderItem(models.Model):
     def get_accommodation_cost(self):
         if self.apartmen:
             k = 1+self.apartmen.price/100
-            reslt = self.accommodation.price * self.nights * k
+            reslt = (self.accommodation.price * self.nights * k).quantize(Decimal("1.00"))
         else:
             reslt = self.accommodation.price * self.nights
         return reslt
