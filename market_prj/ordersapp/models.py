@@ -49,8 +49,8 @@ class Order(models.Model):
         accommodation = self.orderitems.select_related()
         # return sum(list(map(lambda x: x.nights *  x.accommodation.price if not x.apartmen else int(x.nights *  x.accommodation.price * (1+ x.apartmen.price/100)),
         #                     accommodation)))
-        for acc in accommodation:
-            print(acc.nights,acc.price_order)
+        # for acc in accommodation:
+        #     print(acc.nights,acc.price_order)
         return sum(list(map(lambda x: x.nights * x.price_order ,accommodation)))
 
     def delete(self):

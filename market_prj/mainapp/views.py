@@ -139,6 +139,7 @@ def accommodation(request, pk):
         'title': title,
         'accommodation': get_object_or_404(Accommodation, pk=pk),
         'list_apartmen': list_apartmen,
+        'is_apartmen': len(list_apartmen)
     }
     # print('request=',request)
     return render(request, 'mainapp/accommodation_details.html', content)

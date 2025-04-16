@@ -42,6 +42,8 @@ class OrderItemsCreate(CreateView):
         data = super(OrderItemsCreate, self).get_context_data(**kwargs)
         OrderFormSet = inlineformset_factory(
             Order, OrderItem, form=OrderItemForm, extra=1, fields='__all__')
+        sumprice = 0
+        sumnights = 0
 
         if self.request.POST:
             formset = OrderFormSet(self.request.POST)
@@ -59,17 +61,24 @@ class OrderItemsCreate(CreateView):
                     form.initial['accommodation'] = basket_items[num].accommodation
                     form.initial['apartmen'] = basket_items[num].apartmen
                     form.initial['nights'] = basket_items[num].nights
+                    sumnights += form.initial['nights']
                     if basket_items[num].apartmen:
                         price_apart = 1+basket_items[num].apartmen.price/100
                         form.initial['price_order'] = (basket_items[num].accommodation.price * price_apart).quantize(Decimal("1.00"))
                     else:
                         form.initial['price_order'] = basket_items[num].accommodation.price
-                    form.initial['price'] = form.initial['price_order'] * form.initial['nights']
+                    sprice = form.initial['price_order'] * form.initial['nights']
+                    form.initial['price'] = sprice
+                    sumprice += sprice
                 basket_items.delete()
             else:
                 formset = OrderFormSet()
 
         data['orderitems'] = formset
+        data['sumprice'] = sumprice
+        data['sumnights'] = sumnights
+        data['user'] = self.request.user
+
         return data
 
     def form_valid(self, form):

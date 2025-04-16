@@ -22,16 +22,18 @@
                 </div>
                 <form method="post">
                     {% csrf_token %}
+                      {% if is_apartmen > 0 %}
                         {% include 'mainapp/includes/apartmens_list.html' %}
                         <button name="btn_accom_add" id="btn_accom_add" type="submit" value="ok">
                             Забронировать номера
                         </button>
+                      {% endif %}
                     </form>
 
                 <div class="float-right">
                     <button class="btn  btn-danger " >
                         <a style="color: white; text-decoration: none"
-                           href="{% url 'basket:add' accommodation.pk %}">Забронировать</a>
+                           href="{% url 'basket:add' accommodation.pk %}">Забронировать базовые</a>
                     </button>
 
                 </div>
