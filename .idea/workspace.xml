@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="130425">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="postress1504">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,20 +28,19 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "VasiliyDerkach"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;VasiliyDerkach&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/VasiliyDerkach/market_prj.git",
-    "accountId": "dba95d93-b7bb-4ddc-bd64-2c474addb45b"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/VasiliyDerkach/market_prj.git&quot;,
+    &quot;accountId&quot;: &quot;dba95d93-b7bb-4ddc-bd64-2c474addb45b&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -62,9 +63,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\PythonCurse\market_prj\market_prj" />
       <recent name="C:\PythonCurse\market_prj\market_prj\authapp\migrations" />
       <recent name="C:\PythonCurse\market_prj\market_prj\authapp\migrations\1" />
-      <recent name="C:\PythonCurse\market_prj\market_prj" />
       <recent name="C:\PythonCurse\market_prj" />
       <recent name="C:\PythonCurse\market_prj\market_prj\market_prj" />
     </key>
@@ -72,7 +73,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-337b0a7a993a-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.19416.19" />
+        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
       </set>
     </attachedChunks>
   </component>
@@ -317,7 +318,23 @@
       <option name="project" value="LOCAL" />
       <updated>1744556240006</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="postress1504">
+      <option name="closed" value="true" />
+      <created>1744726810808</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1744726810808</updated>
+    </task>
+    <task id="LOCAL-00031" summary="postress1504">
+      <option name="closed" value="true" />
+      <created>1744727863400</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1744727863400</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,6 +374,7 @@
     <MESSAGE value="110420251" />
     <MESSAGE value="11042025+" />
     <MESSAGE value="130425" />
-    <option name="LAST_COMMIT_MESSAGE" value="130425" />
+    <MESSAGE value="postress1504" />
+    <option name="LAST_COMMIT_MESSAGE" value="postress1504" />
   </component>
 </project>

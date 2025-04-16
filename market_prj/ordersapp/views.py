@@ -61,14 +61,10 @@ class OrderItemsCreate(CreateView):
                     form.initial['nights'] = basket_items[num].nights
                     if basket_items[num].apartmen:
                         price_apart = 1+basket_items[num].apartmen.price/100
-                        # price_apart = price_apart.quantize(Decimal("1.00"))
-                        # print('price_apart=',price_apart,'type=',type(price_apart))
-                        # print(type(basket_items[num].accommodation.price))
-                        # form.initial['price_oder'] = price_apart
                         form.initial['price_order'] = (basket_items[num].accommodation.price * price_apart).quantize(Decimal("1.00"))
                     else:
-                        # print(type(basket_items[num].accommodation.price))
                         form.initial['price_order'] = basket_items[num].accommodation.price
+                    form.initial['price'] = form.initial['price_order'] * form.initial['nights']
                 basket_items.delete()
             else:
                 formset = OrderFormSet()
@@ -114,11 +110,11 @@ class OrderItemsUpdate(UpdateView):
             data['orderitems'] = OrderFormSet(self.request.POST, instance=self.object)
         else:
             data['orderitems'] = OrderFormSet(instance=self.object)
-            #formset = OrderFormSet(instance=self.object)
-            #for form in formset.forms:
-                #if form.instance.pk:
-                    #form.initial['price'] = form.instance.accommodation.price
-            #data['orderitems'] = formset
+            formset = OrderFormSet(instance=self.object)
+            for form in formset.forms:
+                if form.instance.pk:
+                    form.initial['price'] = form.instance.price_order
+            data['orderitems'] = formset
 
         return data
 

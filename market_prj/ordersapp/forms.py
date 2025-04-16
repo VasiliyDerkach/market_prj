@@ -22,6 +22,5 @@ class OrderItemForm(forms.ModelForm):
 
     def __init__(self,  *args, **kwargs):
         super(OrderItemForm, self).__init__(*args, **kwargs)
-        # print(self.instance.apartmen_id)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
