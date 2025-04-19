@@ -60,26 +60,19 @@ def basket_remove(request, pk):
 
 @login_required
 def basket_edit(request, pk, nights):
-    # print("привет pk = ",pk)
     if request.is_ajax():
         nights = int(nights)
-        # new_basket_item = Basket.objects.get(pk)
         new_basket_item = Basket.objects.filter(id=pk).get()
-        # print('Basket.objects.get(pk)=',new_basket_item)
         if nights > 0:
             new_basket_item.nights = nights
             new_basket_item.save()
         else:
             new_basket_item.delete()
-
         basket_items = Basket.objects.filter(user=request.user).order_by(
             'accommodation__region_id__country_id')
-
         content = {
             'basket_items': basket_items,
         }
-
         result = render_to_string('basketapp/includes/inc_basket_list.html',
                                   content)
-
         return JsonResponse({'result': result})

@@ -4,24 +4,19 @@ from decimal import Decimal
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.db import transaction
-#from django.db.models.signals import pre_save
-#from django.db.models.signals import pre_delete
-#from django.dispatch import receiver
-
 from django.forms import inlineformset_factory
-#from django.forms import formset_factory
-
 from django.views.generic import ListView
 from django.views.generic import CreateView
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from django.views.generic.detail import DetailView
-
 from basketapp.models import Basket
 from ordersapp.models import Order
 from ordersapp.models import OrderItem
 from ordersapp.forms import OrderItemForm
 from mainapp.models import Apartmen
+from django.template.loader import render_to_string
+from django.http import JsonResponse
 
 # список заказов
 class OrderList(ListView):
@@ -59,6 +54,7 @@ class OrderItemsCreate(CreateView):
                 for num, form in enumerate(formset.forms):
                     form.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation=basket_items[num].accommodation)
                     form.initial['accommodation'] = basket_items[num].accommodation
+                    form.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation_id=basket_items[num].accommodation_id)
                     form.initial['apartmen'] = basket_items[num].apartmen
                     form.initial['nights'] = basket_items[num].nights
                     sumnights += form.initial['nights']
@@ -70,6 +66,7 @@ class OrderItemsCreate(CreateView):
                     sprice = form.initial['price_order'] * form.initial['nights']
                     form.initial['price'] = sprice
                     sumprice += sprice
+                    print('form.fields.prepare_value=', dir(form.fields['apartmen'].prepare_value))
                 basket_items.delete()
             else:
                 formset = OrderFormSet()
@@ -114,6 +111,7 @@ class OrderItemsUpdate(UpdateView):
         formset = OrderFormSet()
         for num, form in enumerate(formset.forms):
             form.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation_id=form.fields['accommodation_id'])
+            print('form.fields=',dir(form.fields['apartmen']))
 
         if self.request.POST:
             data['orderitems'] = OrderFormSet(self.request.POST, instance=self.object)
@@ -150,3 +148,23 @@ def order_forming_complete(request, pk):
     order.save()
 
     return HttpResponseRedirect(reverse('ordersapp:orders_list'))
+
+# @login_required
+# def orderitem_edit(request, pk, nights):
+#     if request.is_ajax():
+#         nights = int(nights)
+#         new_orderitem_item = OrderItem.objects.filter(id=pk).get()
+#         if nights > 0:
+#             new_orderitem_item.nights = nights
+#             new_orderitem_item.save()
+#         else:
+#             new_orderitem_item.delete()
+#         order_items = OrderItem.objects.filter(user=request.user,order=new_orderitem_item.order)
+#         # .order_by(
+#         #     'accommodation__region_id__country_id')
+#         content = {
+#             'basket_items': order_items,
+#         }
+#         result = render_to_string('ordersapp/order_form.html',
+#                                   content)
+#         return JsonResponse({'result': result})
