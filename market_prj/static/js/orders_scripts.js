@@ -1,5 +1,5 @@
 window.onload = function () {
-    $('.orderitem_list').on('submit','div[name="accommodation_order"]', function () {
+    $('.orderitem_list').on('select','select[name="orderitems-0-accommodation"]', function () {
         var t_href = event.target;
         print('accommodation_order',t_href.value)
 
