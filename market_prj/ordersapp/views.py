@@ -66,7 +66,7 @@ class OrderItemsCreate(CreateView):
                     sprice = form.initial['price_order'] * form.initial['nights']
                     form.initial['price'] = sprice
                     sumprice += sprice
-                    print('form.fields.prepare_value=', dir(form.fields['apartmen'].prepare_value))
+                    # print('form.fields.=', dir(form.fields['apartmen'].prepare_value))
                 basket_items.delete()
             else:
                 formset = OrderFormSet()

@@ -38,12 +38,16 @@
                                         {% endcache %}
                                     {% else %}
                                         {% if field.name == 'accommodation' %}
-                                            {{ field.select }}
+                                        <div class="orderitem_list mt-4">
+                                            <div name ="accommodation_order">
+                                                {{ field }}
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                            {{ field }}
                                         {% endif %}
-                                        {{ field }}
 <!--                                        <div class="orderitem_list mt-4">-->
 <!--                                        {% if field.name == 'price_order' %}-->
-<!--                                            <input type="number_order" name="{{ field }}" min="0" value="{{ field }}">-->
 <!--                                        {% endif %}-->
 <!--                                        {% if field.name == 'nights' %}-->
 <!--                                            <input type="number_order_nights" name="{{ field }}" min="0" value="{{ field }}">-->
