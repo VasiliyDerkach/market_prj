@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="190425">
+    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="1904252">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/static/js/orderi_scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/static/js/orderi_scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/market_prj/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/market_prj/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/static/js/orders_scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/static/js/orders_scripts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -360,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745070473735</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="1904252">
+      <option name="closed" value="true" />
+      <created>1745077983742</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1745077983742</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -376,7 +388,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="adm" />
     <MESSAGE value="2join" />
     <MESSAGE value="2join1" />
     <MESSAGE value="country list" />
@@ -401,6 +412,7 @@
     <MESSAGE value="postress1504" />
     <MESSAGE value="postress1604" />
     <MESSAGE value="190425" />
-    <option name="LAST_COMMIT_MESSAGE" value="190425" />
+    <MESSAGE value="1904252" />
+    <option name="LAST_COMMIT_MESSAGE" value="1904252" />
   </component>
 </project>

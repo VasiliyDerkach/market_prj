@@ -9,6 +9,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <table class="table">
+                <div class="orderitem_list mt-4">
                 {{ orderitems.management_form }}
                 {% for form in orderitems.forms %}
                     {% if forloop.first %}
@@ -22,6 +23,7 @@
                         </tr>
                         </thead>
                     {% endif %}
+
                     <tr class="formset_row">
                         {% for field in form.visible_fields %}
                             <td class="{% cycle 'td1' 'td2' 'td3' 'td4' %} order formset_td">
@@ -38,11 +40,11 @@
                                         {% endcache %}
                                     {% else %}
                                         {% if field.name == 'accommodation' %}
-                                        <div class="orderitem_list mt-4">
+
                                             <div name ="accommodation_order">
                                                 {{ field }}
                                             </div>
-                                        </div>
+
                                         {% else %}
                                             {{ field }}
                                         {% endif %}
@@ -68,6 +70,7 @@
                         {% endfor %}
                     </tr>
                 {% endfor %}
+                </div>
             </table>
             <button type="submit" value="сохранить" class="btn btn-default btn-round form-control last">сохранить</button>
             {% include 'ordersapp/includes/inc_order_actions.html' %}

@@ -150,6 +150,11 @@ def order_forming_complete(request, pk):
     return HttpResponseRedirect(reverse('ordersapp:orders_list'))
 
 # @login_required
+def edit_accommodation(request,vv):
+    if request.is_ajax():
+        print(vv)
+
+# @login_required
 # def orderitem_edit(request, pk, nights):
 #     if request.is_ajax():
 #         nights = int(nights)
