@@ -15,6 +15,7 @@ from ordersapp.models import Order
 from ordersapp.models import OrderItem
 from ordersapp.forms import OrderItemForm
 from mainapp.models import Apartmen
+from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 
@@ -149,8 +150,9 @@ def order_forming_complete(request, pk):
 
     return HttpResponseRedirect(reverse('ordersapp:orders_list'))
 
-# @login_required
+@login_required
 def edit_accommodation(request,vv):
+    print('edit_accommodation=',dir(request))
     if request.is_ajax():
         print(vv)
 

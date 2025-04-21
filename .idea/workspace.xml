@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="1904252">
+    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="200425">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/market_prj/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/market_prj/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/adminapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/adminapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/static/js/orders_scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/static/js/orders_scripts.js" afterDir="false" />
     </list>
@@ -36,12 +34,12 @@
     &quot;assignee&quot;: &quot;VasiliyDerkach&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/VasiliyDerkach/market_prj.git&quot;,
-    &quot;accountId&quot;: &quot;dba95d93-b7bb-4ddc-bd64-2c474addb45b&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/VasiliyDerkach/market_prj",
+    "accountId": "319a2fd3-eb1c-432f-a536-d3cd7a0cb6db"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -79,7 +77,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
+        <option value="bundled-python-sdk-337b0a7a993a-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.19416.19" />
       </set>
     </attachedChunks>
   </component>
@@ -372,7 +370,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745077983742</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="200425">
+      <option name="closed" value="true" />
+      <created>1745167946423</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1745167946423</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -388,7 +394,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="2join" />
     <MESSAGE value="2join1" />
     <MESSAGE value="country list" />
     <MESSAGE value="country list1" />
@@ -413,6 +418,7 @@
     <MESSAGE value="postress1604" />
     <MESSAGE value="190425" />
     <MESSAGE value="1904252" />
-    <option name="LAST_COMMIT_MESSAGE" value="1904252" />
+    <MESSAGE value="200425" />
+    <option name="LAST_COMMIT_MESSAGE" value="200425" />
   </component>
 </project>
