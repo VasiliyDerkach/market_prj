@@ -1,12 +1,12 @@
 window.onload = function () {
-    $('.td4 order formset_td').on('click','input[type="number"]', function () {
+    $('.order_form').on('click','input[type="number"]', function () {
         var t_href = event.target;
 
         $.ajax({
-            url: "/ordersapp/edit_accommodation/" + t_href.value ,
+            url: "/order/edit_accommodation/" + t_href.value+'/' ,
 
             success: function (data) {
-                $('.orderitem_list').html(data.result);
+                $('.order_form').html(data.result);
             },
         });
 //

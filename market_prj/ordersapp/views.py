@@ -71,7 +71,11 @@ class OrderItemsCreate(CreateView):
                 basket_items.delete()
             else:
                 formset = OrderFormSet()
-
+        # for fld in form.visible_fields():
+        #     flds = str(fld)
+        #     flds = flds.replace('id="id_', 'id="id_' + str(basket_items[num].id) + '_')
+        #     flds = flds.replace('-nights">', '-nights_' + str(form.initial['price_order']) + '_">')
+        #     print(flds)
         data['orderitems'] = formset
         data['sumprice'] = sumprice
         data['sumnights'] = sumnights
@@ -155,6 +159,9 @@ def edit_accommodation(request,vv):
     print('edit_accommodation=',dir(request))
     if request.is_ajax():
         print(vv)
+        content ={'orderitems': None,}
+        result = render_to_string('ordersapp/order_form.html', content)
+        return JsonResponse({'result': result})
 
 # @login_required
 # def orderitem_edit(request, pk, nights):
@@ -172,6 +179,3 @@ def edit_accommodation(request,vv):
 #         content = {
 #             'basket_items': order_items,
 #         }
-#         result = render_to_string('ordersapp/order_form.html',
-#                                   content)
-#         return JsonResponse({'result': result})
