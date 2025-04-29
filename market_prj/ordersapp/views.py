@@ -1,5 +1,5 @@
-from django.shortcuts import get_object_or_404
-from django.shortcuts import HttpResponseRedirect
+from django.shortcuts import get_object_or_404,render
+from django.shortcuts import HttpResponseRedirect,HttpResponsePermanentRedirect
 from decimal import Decimal
 from django.urls import reverse
 from django.urls import reverse_lazy
@@ -47,7 +47,7 @@ class OrderItemsCreate(CreateView):
         else:
             basket_items = Basket.get_items(self.request.user)
             if len(basket_items):
-                print('basket_items-form')
+                # print('basket_items-form')
                 OrderFormSet = inlineformset_factory(Order,
                                                      OrderItem,
                                                      form=OrderItemForm,
@@ -61,7 +61,7 @@ class OrderItemsCreate(CreateView):
                     form.initial['apartmen'] = basket_items[num].apartmen
 
                     form.initial['nights'] = basket_items[num].nights
-                    print('basket_items[num].nights=',basket_items[num].nights)
+                    # print('basket_items[num].nights=',basket_items[num].nights)
                     sumnights += form.initial['nights']
                     if basket_items[num].apartmen:
                         price_apart = 1+basket_items[num].apartmen.price/100
@@ -71,7 +71,6 @@ class OrderItemsCreate(CreateView):
                     sprice = form.initial['price_order'] * form.initial['nights']
                     form.initial['price'] = sprice
                     sumprice += sprice
-                    # print('form.fields.=', dir(form.fields['apartmen'].prepare_value))
 
             else:
                 formset = OrderFormSet()
@@ -88,6 +87,49 @@ class OrderItemsCreate(CreateView):
 
         return data
 
+
+    @property
+    def get_context_data_prop(vuser,**kwargs):
+        # data = super(OrderItemsCreate, self).get_context_data(**kwargs)
+        OrderFormSet = inlineformset_factory(
+            Order, OrderItem, form=OrderItemForm, extra=1, fields='__all__')
+        sumprice = 0
+        sumnights = 0
+        basket_items = Basket.objects.filter(user=vuser).get()
+        if len(basket_items):
+                # print('basket_items-form')
+            OrderFormSet = inlineformset_factory(Order,
+                                                     OrderItem,
+                                                     form=OrderItemForm,
+                                                     extra=len(basket_items),
+                                                     fields='__all__')
+            formset = OrderFormSet()
+            for num, form in enumerate(formset.forms):
+                form.fields['apartmen'].queryset = Apartmen.objects.filter(
+                        accommodation=basket_items[num].accommodation)
+                form.initial['accommodation'] = basket_items[num].accommodation
+                form.fields['apartmen'].queryset = Apartmen.objects.filter(
+                        accommodation_id=basket_items[num].accommodation_id)
+                form.initial['apartmen'] = basket_items[num].apartmen
+
+                form.initial['nights'] = basket_items[num].nights
+                    # print('basket_items[num].nights=',basket_items[num].nights)
+                sumnights += form.initial['nights']
+                if basket_items[num].apartmen:
+                    price_apart = 1 + basket_items[num].apartmen.price / 100
+                    form.initial['price_order'] = (basket_items[num].accommodation.price * price_apart).quantize(
+                            Decimal("1.00"))
+                else:
+                    form.initial['price_order'] = basket_items[num].accommodation.price
+                sprice = form.initial['price_order'] * form.initial['nights']
+                form.initial['price'] = sprice
+                sumprice += sprice
+                    # print('form.fields.=', dir(form.fields['apartmen'].prepare_value))
+
+        else:
+            formset = OrderFormSet()
+
+        return {'orderitems': formset, 'sumprice': sumprice , 'sumnights': sumnights, 'user': vuser }
     def form_valid(self, form):
         context = self.get_context_data()
         orderitems = context['orderitems']
@@ -173,7 +215,17 @@ def edit_accommodation(request,vv,nights):
         if fld=='nights':
             basket_item.nights = nights
         basket_item.save()
-    return HttpResponseRedirect(reverse('ordersapp:order_create'))
+        cOrderItemsCreate= OrderItemsCreate()
+        data = cOrderItemsCreate.get_context_data_prop(request.user)
+        # data = cOrderItemsCreate.get_context_data()
+        print(dir(cOrderItemsCreate))
+        content = {
+            'data': data,
+        }
+        result = render_to_string('orderapp/order_form.html',
+                                  content)
+    return JsonResponse({'result': result})
+    # return HttpResponseRedirect(reverse('ordersapp:order_create'))
 
 # @login_required
 # def orderitem_edit(request, pk, nights):
