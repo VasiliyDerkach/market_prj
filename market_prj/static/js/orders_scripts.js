@@ -3,7 +3,7 @@ window.onload = function () {
         var t_href = event.target;
 
         $.ajax({
-            url: "/order/edit_accommodation/" + t_href.value+'/' ,
+            url: "/order/edit_accommodation/" + t_href.name+'/'+t_href.value+'/' ,
 
             success: function (data) {
                 $('.order_form').html(data.result);

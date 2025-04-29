@@ -124,16 +124,17 @@ def accommodation(request, pk):
             if val and request.user:
                 for elm in list_apartmen:
                     if str(elm.id) in list(val):
-                        if request.user:
+                        # print(request.user.id)
+                        if request.user.id:
                             basket = Basket.objects.filter(user=request.user,accommodation_id=pk,apartmen_id=elm.id).first()
                         else:
                             basket = None
-                        if not basket:
+                        if not basket and request.user.id:
                             basket = Basket(user=request.user, accommodation=accommodation,
                                             country_id=accommodation.region.country_id,apartmen_id=elm.id)
-
-                        basket.nights += 1
-                        basket.save()
+                        if request.user.id:
+                            basket.nights += 1
+                            basket.save()
 
     content = {
         'title': title,

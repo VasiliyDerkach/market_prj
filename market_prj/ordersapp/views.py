@@ -40,9 +40,10 @@ class OrderItemsCreate(CreateView):
             Order, OrderItem, form=OrderItemForm, extra=1, fields='__all__')
         sumprice = 0
         sumnights = 0
-
         if self.request.POST:
             formset = OrderFormSet(self.request.POST)
+            basket_items = Basket.get_items(self.request.user)
+            basket_items.delete()
         else:
             basket_items = Basket.get_items(self.request.user)
             if len(basket_items):
@@ -57,6 +58,7 @@ class OrderItemsCreate(CreateView):
                     form.initial['accommodation'] = basket_items[num].accommodation
                     form.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation_id=basket_items[num].accommodation_id)
                     form.initial['apartmen'] = basket_items[num].apartmen
+
                     form.initial['nights'] = basket_items[num].nights
                     sumnights += form.initial['nights']
                     if basket_items[num].apartmen:
@@ -68,7 +70,7 @@ class OrderItemsCreate(CreateView):
                     form.initial['price'] = sprice
                     sumprice += sprice
                     # print('form.fields.=', dir(form.fields['apartmen'].prepare_value))
-                basket_items.delete()
+
             else:
                 formset = OrderFormSet()
         # for fld in form.visible_fields():
@@ -116,7 +118,7 @@ class OrderItemsUpdate(UpdateView):
         formset = OrderFormSet()
         for num, form in enumerate(formset.forms):
             form.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation_id=form.fields['accommodation_id'])
-            print('form.fields=',dir(form.fields['apartmen']))
+            # print('form.fields=',dir(form.fields['apartmen']))
 
         if self.request.POST:
             data['orderitems'] = OrderFormSet(self.request.POST, instance=self.object)
@@ -155,13 +157,18 @@ def order_forming_complete(request, pk):
     return HttpResponseRedirect(reverse('ordersapp:orders_list'))
 
 @login_required
-def edit_accommodation(request,vv):
-    print('edit_accommodation=',dir(request))
+def edit_accommodation(request,vv,nights):
+    # print('edit_accommodation=',dir(request))
     if request.is_ajax():
-        print(vv)
-        content ={'orderitems': None,}
-        result = render_to_string('ordersapp/order_form.html', content)
-        return JsonResponse({'result': result})
+        vv = vv.replace('orderitems-','')
+        vv1 = vv[:vv.find('-')]
+        print('vv=',vv1,'nights=',nights,request.user)
+        basket_items = Basket.get_items(request.user)
+        # print(basket_items)
+        basket_item = basket_items[int(vv1)]
+        basket_item.nights = nights
+        basket_item.save()
+    return HttpResponseRedirect(reverse('ordersapp:order_create'))
 
 # @login_required
 # def orderitem_edit(request, pk, nights):
