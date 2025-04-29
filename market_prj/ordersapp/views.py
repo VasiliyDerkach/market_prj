@@ -47,6 +47,7 @@ class OrderItemsCreate(CreateView):
         else:
             basket_items = Basket.get_items(self.request.user)
             if len(basket_items):
+                print('basket_items-form')
                 OrderFormSet = inlineformset_factory(Order,
                                                      OrderItem,
                                                      form=OrderItemForm,
@@ -60,6 +61,7 @@ class OrderItemsCreate(CreateView):
                     form.initial['apartmen'] = basket_items[num].apartmen
 
                     form.initial['nights'] = basket_items[num].nights
+                    print('basket_items[num].nights=',basket_items[num].nights)
                     sumnights += form.initial['nights']
                     if basket_items[num].apartmen:
                         price_apart = 1+basket_items[num].apartmen.price/100
@@ -81,6 +83,7 @@ class OrderItemsCreate(CreateView):
         data['orderitems'] = formset
         data['sumprice'] = sumprice
         data['sumnights'] = sumnights
+        print('sumnights=',data['sumnights'])
         data['user'] = self.request.user
 
         return data
@@ -162,11 +165,13 @@ def edit_accommodation(request,vv,nights):
     if request.is_ajax():
         vv = vv.replace('orderitems-','')
         vv1 = vv[:vv.find('-')]
-        print('vv=',vv1,'nights=',nights,request.user)
+        fld = vv.replace(vv1+'-','')
+        print('vv=',vv1,'nights=',nights,'fld=',fld,request.user)
         basket_items = Basket.get_items(request.user)
         # print(basket_items)
         basket_item = basket_items[int(vv1)]
-        basket_item.nights = nights
+        if fld=='nights':
+            basket_item.nights = nights
         basket_item.save()
     return HttpResponseRedirect(reverse('ordersapp:order_create'))
 
