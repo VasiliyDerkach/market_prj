@@ -63,7 +63,7 @@ class Accommodation(models.Model):
         if join_type=='country':
             list_of_accommodations2 = list_of_accommodations2.select_related('country')
         if isinstance(country_id,list):
-            print('country_id(list)=', country_id)
+            # print('country_id(list)=', country_id)
             list_of_accommodations2 = list_of_accommodations2.filter(region_id__country_id__in=country_id)
 
         elif country_id:
