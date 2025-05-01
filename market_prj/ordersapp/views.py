@@ -220,6 +220,9 @@ def edit_accommodation(request,vv,nights):
             basket_item.nights = int(nights)
         elif fld=='apartmen':
             basket_item.apartmen_id = nights
+        elif fld=='accommodation':
+            basket_item.apartmen_id = None
+            basket_item.accommodation_id = nights
         basket_item.save()
         cOrderItemsCreate= OrderItemsCreate()
         # idu = request.user.id

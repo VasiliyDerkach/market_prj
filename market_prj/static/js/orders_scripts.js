@@ -22,13 +22,13 @@ window.onload = function () {
         var t_href = event.target;
         var vlu = t_href.value
         if (vlu) {
-            var vlu = 'vlu'
+            var vlu = vlu
         }
         else {
             var vlu = 'none'
         }
         $.ajax({
-            url: "/order/edit_accommodation/" + t_href.name+'/a'+vlu+'/' ,
+            url: "/order/edit_accommodation/" + t_href.name+'/'+vlu+'/' ,
 
             success: function (data) {
                 $('.order_form').html(data.result);
