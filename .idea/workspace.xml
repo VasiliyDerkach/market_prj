@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="200425">
+    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="300425">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/adminapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/adminapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/basketapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/basketapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/static/js/orders_scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/static/js/orders_scripts.js" afterDir="false" />
     </list>
@@ -34,12 +35,12 @@
     &quot;assignee&quot;: &quot;VasiliyDerkach&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/VasiliyDerkach/market_prj",
-    "accountId": "319a2fd3-eb1c-432f-a536-d3cd7a0cb6db"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/VasiliyDerkach/market_prj.git&quot;,
+    &quot;accountId&quot;: &quot;dba95d93-b7bb-4ddc-bd64-2c474addb45b&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -51,16 +52,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/PythonCurse/market_prj/market_prj/static/js&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/PythonCurse/market_prj/market_prj/static/js",
+    "settings.editor.selected.configurable": "terminal"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\PythonCurse\market_prj\market_prj\static\js" />
@@ -378,7 +379,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745167946423</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="300425">
+      <option name="closed" value="true" />
+      <created>1745987865025</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1745987865025</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -394,7 +403,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="2join1" />
     <MESSAGE value="country list" />
     <MESSAGE value="country list1" />
     <MESSAGE value="280325" />
@@ -419,6 +427,7 @@
     <MESSAGE value="190425" />
     <MESSAGE value="1904252" />
     <MESSAGE value="200425" />
-    <option name="LAST_COMMIT_MESSAGE" value="200425" />
+    <MESSAGE value="300425" />
+    <option name="LAST_COMMIT_MESSAGE" value="300425" />
   </component>
 </project>

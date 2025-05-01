@@ -41,5 +41,5 @@ class Basket(models.Model):
     @staticmethod
     def get_items(user):
         # print(type(vuser))
-        return Basket.objects.filter(user=user)
+        return Basket.objects.filter(user=user).order_by('id')
         # return user.basket.select_related().order_by('accommodation__region_id__country_id')

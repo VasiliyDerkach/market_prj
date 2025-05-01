@@ -214,8 +214,12 @@ def edit_accommodation(request,vv,nights):
         basket_items = Basket.get_items(request.user)
         # print(basket_items)
         basket_item = basket_items[int(vv1)]
+        if nights=='none':
+            nights = None
         if fld=='nights':
-            basket_item.nights = nights
+            basket_item.nights = int(nights)
+        elif fld=='apartmen':
+            basket_item.apartmen_id = nights
         basket_item.save()
         cOrderItemsCreate= OrderItemsCreate()
         # idu = request.user.id
