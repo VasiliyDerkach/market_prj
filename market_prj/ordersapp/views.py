@@ -88,46 +88,12 @@ class OrderItemsCreate(CreateView):
             formset = OrderFormSet(self.request.POST)
             basket_items = Basket.get_items(self.request.user)
             basket_items.delete()
+            data['orderitems'] = formset
+            data['sumprice'] = sumprice
+            data['sumnights'] = sumnights
+            data['user'] = self.request.user
         else:
-            basket_items = Basket.get_items(self.request.user)
-            if len(basket_items):
-                # print('basket_items-form')
-                OrderFormSet = inlineformset_factory(Order,
-                                                     OrderItem,
-                                                     form=OrderItemForm,
-                                                     extra=len(basket_items),
-                                                     fields='__all__')
-                formset = OrderFormSet()
-                for num, form in enumerate(formset.forms):
-                    form.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation=basket_items[num].accommodation)
-                    form.initial['accommodation'] = basket_items[num].accommodation
-                    form.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation_id=basket_items[num].accommodation_id)
-                    form.initial['apartmen'] = basket_items[num].apartmen
-
-                    form.initial['nights'] = basket_items[num].nights
-                    # print('basket_items[num].nights=',basket_items[num].nights)
-                    sumnights += form.initial['nights']
-                    if basket_items[num].apartmen:
-                        price_apart = 1+basket_items[num].apartmen.price/100
-                        form.initial['price_order'] = (basket_items[num].accommodation.price * price_apart).quantize(Decimal("1.00"))
-                    else:
-                        form.initial['price_order'] = basket_items[num].accommodation.price
-                    sprice = form.initial['price_order'] * form.initial['nights']
-                    form.initial['price'] = sprice
-                    sumprice += sprice
-
-            else:
-                formset = OrderFormSet()
-        # for fld in form.visible_fields():
-        #     flds = str(fld)
-        #     flds = flds.replace('id="id_', 'id="id_' + str(basket_items[num].id) + '_')
-        #     flds = flds.replace('-nights">', '-nights_' + str(form.initial['price_order']) + '_">')
-        #     print(flds)
-        data['orderitems'] = formset
-        data['sumprice'] = sumprice
-        data['sumnights'] = sumnights
-        print('sumnights=',data['sumnights'])
-        data['user'] = self.request.user
+            data = self.get_context_data_prop(self.request.user)
 
         return data
 
@@ -148,6 +114,52 @@ class OrderItemsCreate(CreateView):
 
         return super(OrderItemsCreate, self).form_valid(form)
 
+    # def get_context_data(self, **kwargs):
+    #     data = super(OrderItemsCreate, self).get_context_data(**kwargs)
+    #     OrderFormSet = inlineformset_factory(
+    #         Order, OrderItem, form=OrderItemForm, extra=1, fields='__all__')
+    #     sumprice = 0
+    #     sumnights = 0
+    #     if self.request.POST:
+    #         formset = OrderFormSet(self.request.POST)
+    #         basket_items = Basket.get_items(self.request.user)
+    #         basket_items.delete()
+    #     else:
+    #         basket_items = Basket.get_items(self.request.user)
+    #         if len(basket_items):
+    #             # print('basket_items-form')
+    #             OrderFormSet = inlineformset_factory(Order,
+    #                                                  OrderItem,
+    #                                                  form=OrderItemForm,
+    #                                                  extra=len(basket_items),
+    #                                                  fields='__all__')
+    #             formset = OrderFormSet()
+    #             for num, form in enumerate(formset.forms):
+    #                 form.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation=basket_items[num].accommodation)
+    #                 form.initial['accommodation'] = basket_items[num].accommodation
+    #                 form.fields['apartmen'].queryset = Apartmen.objects.filter(accommodation_id=basket_items[num].accommodation_id)
+    #                 form.initial['apartmen'] = basket_items[num].apartmen
+    #
+    #                 form.initial['nights'] = basket_items[num].nights
+    #                 sumnights += form.initial['nights']
+    #                 if basket_items[num].apartmen:
+    #                     price_apart = 1+basket_items[num].apartmen.price/100
+    #                     form.initial['price_order'] = (basket_items[num].accommodation.price * price_apart).quantize(Decimal("1.00"))
+    #                 else:
+    #                     form.initial['price_order'] = basket_items[num].accommodation.price
+    #                 sprice = form.initial['price_order'] * form.initial['nights']
+    #                 form.initial['price'] = sprice
+    #                 sumprice += sprice
+    #
+    #         else:
+    #             formset = OrderFormSet()
+    #     data['orderitems'] = formset
+    #     data['sumprice'] = sumprice
+    #     data['sumnights'] = sumnights
+    #     print('sumnights=',data['sumnights'])
+    #     data['user'] = self.request.user
+    #
+    #     return data
 
 # редактирование заказа с товарными позициями
 class OrderItemsUpdate(UpdateView):

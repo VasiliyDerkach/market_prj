@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="3004251">
+    <list default="true" id="1399f4d8-cb80-411d-9fd9-7648c99e46c3" name="Changes" comment="010525">
+      <change afterPath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_form_u.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/templates/ordersapp/order_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market_prj/ordersapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/ordersapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market_prj/static/js/orders_scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/market_prj/static/js/orders_scripts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,18 +51,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/PythonCurse/market_prj/market_prj/static/js&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/1/PycharmProjects/market_prj/market_prj/ordersapp/templates/ordersapp",
+    "settings.editor.selected.configurable": "terminal"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\1\PycharmProjects\market_prj\market_prj\ordersapp\templates\ordersapp" />
       <recent name="C:\PythonCurse\market_prj\market_prj\static\js" />
       <recent name="C:\PythonCurse\market_prj\market_prj\ordersapp\templates\ordersapp\includes" />
     </key>
@@ -393,7 +395,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746081704066</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="010525">
+      <option name="closed" value="true" />
+      <created>1746084427982</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1746084427982</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -409,7 +419,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="country list1" />
     <MESSAGE value="280325" />
     <MESSAGE value="290325" />
     <MESSAGE value="300325" />
@@ -434,6 +443,7 @@
     <MESSAGE value="200425" />
     <MESSAGE value="300425" />
     <MESSAGE value="3004251" />
-    <option name="LAST_COMMIT_MESSAGE" value="3004251" />
+    <MESSAGE value="010525" />
+    <option name="LAST_COMMIT_MESSAGE" value="010525" />
   </component>
 </project>
