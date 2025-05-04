@@ -3,10 +3,10 @@
 {% load cache %}
 
 {% block content %}
-    <div class="inc_order_cre_summary">
-        {% include 'ordersapp/includes/inc_order_cre_summary.html' %}
-    </div>
     <div class="order_form">
+        <div class="inc_order_cre_summary">
+            {% include 'ordersapp/includes/inc_order_cre_summary.html' %}
+        </div>
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
