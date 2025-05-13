@@ -223,7 +223,7 @@ def edit_accommodation(request,exs,vv,nights):
         vv1 = vv[:vv.find('-')]
         fld = vv.replace(vv1+'-','')
         print('vv=',vv1,'nights=',nights,'fld=',fld,request.user)
-        if exs!='-':
+        if exs=='-':
             basket_items = Basket.get_items(request.user)
         # print(basket_items)
             basket_item = basket_items[int(vv1)]
