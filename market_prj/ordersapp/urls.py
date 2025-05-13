@@ -11,6 +11,6 @@ urlpatterns = [
     path('update/<pk>/', ordersapp.OrderItemsUpdate.as_view(), name='order_update'),
     path('delete/<pk>/', ordersapp.OrderDelete.as_view(), name='order_delete'),
     # path('edit_night/<n>'),
-    path('edit_accommodation/<vv>/<nights>/',ordersapp.edit_accommodation,name='edit_accommodation'),
+    path('edit_accommodation/<exs>/<vv>/<nights>/',ordersapp.edit_accommodation,name='edit_accommodation'),
     # path('edit_accommodation/<update>/', ordersapp.OrderItemsCreate.as_view(), name='edit_accommodation'),
 ]

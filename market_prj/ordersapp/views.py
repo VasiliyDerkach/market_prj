@@ -216,30 +216,31 @@ def order_forming_complete(request, pk):
     return HttpResponseRedirect(reverse('ordersapp:orders_list'))
 
 @login_required
-def edit_accommodation(request,vv,nights):
+def edit_accommodation(request,exs,vv,nights):
     # print('edit_accommodation=',dir(request))
     if request.is_ajax():
         vv = vv.replace('orderitems-','')
         vv1 = vv[:vv.find('-')]
         fld = vv.replace(vv1+'-','')
         print('vv=',vv1,'nights=',nights,'fld=',fld,request.user)
-        basket_items = Basket.get_items(request.user)
+        if exs!='-':
+            basket_items = Basket.get_items(request.user)
         # print(basket_items)
-        basket_item = basket_items[int(vv1)]
-        if nights=='none':
-            nights = None
-        if fld=='nights':
-            basket_item.nights = int(nights)
-        elif fld=='apartmen':
-            basket_item.apartmen_id = nights
-        elif fld=='accommodation':
-            basket_item.apartmen_id = None
-            basket_item.accommodation_id = nights
-        basket_item.save()
-        cOrderItemsCreate= OrderItemsCreate()
-        # idu = request.user.id
-        # print('request.user.id=',idu)
-        data = cOrderItemsCreate.get_context_data_prop(request.user)
+            basket_item = basket_items[int(vv1)]
+            if nights=='none':
+                nights = None
+            if fld=='nights':
+                basket_item.nights = int(nights)
+            elif fld=='apartmen':
+                basket_item.apartmen_id = nights
+            elif fld=='accommodation':
+                basket_item.apartmen_id = None
+                basket_item.accommodation_id = nights
+            basket_item.save()
+            cOrderItemsCreate= OrderItemsCreate()
+            # idu = request.user.id
+            # print('request.user.id=',idu)
+            data = cOrderItemsCreate.get_context_data_prop(request.user)
         # data = cOrderItemsCreate.get_context_data()
         # print(data)
         # content = {

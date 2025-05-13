@@ -2,6 +2,8 @@
     <div class="h2">Заказ №{{ object.id }} от\
         {{ object.created|date:"Y-m-d H:i:s" }}</div>
     <hr>
+    <input type="hidden" name="order_exist" value={{ object.id }} id="id_order_exist">
+
     <div class="h4">заказчик: {{ user }} </div>
     <div class="h4">обновен: {{ object.updated|date:"Y-m-d H:i:s" }}</div>
     <div class="h4">статус: {{ object.get_status_display }}</div>
@@ -17,6 +19,8 @@
 {% else %}
     <div class="h2">Новый заказ</div>
     <hr>
+    <input type="hidden" name="order_exist" value="-" id="id_order_exist">
+
     <div class="h4">заказчик: {{ user.last_name }} {{ user.first_name }}
     </div>
     {% if basket.0 %}
