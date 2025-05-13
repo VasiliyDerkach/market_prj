@@ -17,7 +17,7 @@ class OrderForm(forms.ModelForm):
 
 class OrderItemForm(forms.ModelForm):
     model = OrderItem
-    price = forms.CharField(label='цена', required=False)
+    price = forms.CharField(label='цена', required=False,widget=forms.TextInput(attrs={'readonly':'readonly'}))
     exclude = ()
 
     def __init__(self,  *args, **kwargs):

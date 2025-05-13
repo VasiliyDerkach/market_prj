@@ -1,5 +1,5 @@
 window.onload = function () {
-    $('.order_form').on('click','input[type="number"]', function () {
+    $('.order_form').on('click','input[name^="orderitems-"]', function () {
         var t_href = event.target;
         var vlu = t_href.value
         if (vlu) {
