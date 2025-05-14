@@ -19,7 +19,7 @@
 {% else %}
     <div class="h2">Новый заказ</div>
     <hr>
-    <input type="hidden" name="order_exist" value={{ object.id }} id="id_order_exist">
+    <input type="hidden" name="order_exist" value="-" id="id_order_exist">
     <div class="h4">заказчик: {{ user.last_name }} {{ user.first_name }} {{ user }}
     </div>
         <div class="h4">

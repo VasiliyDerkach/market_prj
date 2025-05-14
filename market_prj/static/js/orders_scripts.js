@@ -1,8 +1,8 @@
 window.onload = function () {
     $('.order_form').on('click','input[name^="orderitems-"]', function () {
         var t_href = event.target;
-        var vlu = t_href.value
-        var exs= $('#id_order_exist').value()
+        var vlu = t_href.value;
+        var exs= $('#id_order_exist').value();
         if (vlu) {
             var vlu = 'vlu'
         }
@@ -21,8 +21,8 @@ window.onload = function () {
     });
     $('.order_form').on('change','select[name^="orderitems-"]', function () {
         var t_href = event.target;
-        var vlu = t_href.value
-        var exs= $('#id_order_exist').value()
+        var vlu = t_href.value;
+        var exs= $('#id_order_exist').value();
         if (vlu) {
             var vlu = vlu
         }
