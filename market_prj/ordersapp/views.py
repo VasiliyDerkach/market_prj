@@ -222,13 +222,14 @@ def edit_accommodation(request,exs,vv,nights):
         vv = vv.replace('orderitems-','')
         vv1 = vv[:vv.find('-')]
         fld = vv.replace(vv1+'-','')
-        print('vv=',vv1,'nights=',nights,'fld=',fld,request.user)
+        # использовать exs как orderitem.id
+        print('exs=',exs,'vv=',vv1,'nights=',nights,'fld=',fld,request.user)
+        if nights == 'none':
+            nights = None
         if exs=='-':
             basket_items = Basket.get_items(request.user)
         # print(basket_items)
             basket_item = basket_items[int(vv1)]
-            if nights=='none':
-                nights = None
             if fld=='nights':
                 basket_item.nights = int(nights)
             elif fld=='apartmen':
