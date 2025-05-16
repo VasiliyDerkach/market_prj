@@ -3,8 +3,8 @@ window.onload = function () {
         var t_href = event.target;
         var vlu = t_href.value;
 //        извлечь номер строки из t_href
-        var idx = t_href.replace('orderitems-','')
-        var idx = idx.slice(0,idx.indexOf('-'))
+        var idx = t_href.replace('orderitems-','');
+        var idx = idx.slice(0,idx.indexOf('-'));
         var exs= $('#orderitems-'+idx+'-id').attr('value');
         if (exs) {
             var exs = exs
@@ -31,8 +31,8 @@ window.onload = function () {
     $('.order_form').on('change','select[name^="orderitems-"]', function () {
         var t_href = event.target;
         var vlu = t_href.value;
-        var idx = t_href.replace('orderitems-','')
-        var idx = idx.slice(0,idx.indexOf('-'))
+        var idx = t_href.replace('orderitems-','');
+        var idx = idx.slice(0,idx.indexOf('-'));
         var exs= $('#orderitems-'+idx+'-id').attr('value');
         if (exs) {
             var exs = exs
